@@ -1,13 +1,22 @@
-import { useState, type FormEvent } from "react"
+import { useRef, useState, type FormEvent } from "react"
 import { motion } from "framer-motion"
+import emailjs from "emailjs-com"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import PageHero from "../components/PageHero"
 
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string
+
+// Initialize EmailJS once with the public key
+emailjs.init(PUBLIC_KEY)
+
+// `name` matches the EmailJS template variable names
 const fields = [
-  { id: "name", label: "Full Name", type: "text", placeholder: "Your full name" },
-  { id: "email", label: "Email Address", type: "email", placeholder: "you@example.com" },
-  { id: "phone", label: "Phone Number", type: "tel", placeholder: "+91 XXXXX XXXXX" },
-  { id: "subject", label: "Subject", type: "text", placeholder: "How can we help?" },
+  { id: "name", name: "from_name", label: "Full Name", type: "text", placeholder: "Your full name" },
+  { id: "email", name: "from_email", label: "Email Address", type: "email", placeholder: "you@example.com" },
+  { id: "phone", name: "phone", label: "Phone Number", type: "tel", placeholder: "+91 XXXXX XXXXX" },
+  { id: "subject", name: "subject", label: "Subject", type: "text", placeholder: "How can we help?" },
 ] as const
 
 type Status = "idle" | "loading" | "success" | "error"
@@ -36,14 +45,20 @@ const infoBlocks = [
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle")
+  const formRef = useRef<HTMLFormElement>(null)
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    if (!formRef.current) return
     setStatus("loading")
-    // Simulate async submission
-    setTimeout(() => {
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      formRef.current.reset()
       setStatus("success")
-    }, 1200)
+    } catch (err) {
+      console.error("[v0] EmailJS sendForm failed:", err)
+      setStatus("error")
+    }
   }
 
   return (
@@ -67,7 +82,7 @@ export default function Contact() {
             </p>
             <div className="mb-10 mt-4 h-px bg-gold" style={{ width: "60px" }} />
 
-            <form onSubmit={handleSubmit} noValidate>
+            <form ref={formRef} onSubmit={handleSubmit} noValidate>
               <div className="grid grid-cols-1 gap-6">
                 {fields.map((f) => (
                   <div key={f.id} className="flex flex-col">
@@ -80,7 +95,7 @@ export default function Contact() {
                     </label>
                     <input
                       id={f.id}
-                      name={f.id}
+                      name={f.name}
                       type={f.type}
                       required
                       placeholder={f.placeholder}
