@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import WhatsAppBubble from "./components/WhatsAppBubble"
+import ScrollProgressBar from "./components/ScrollProgressBar"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Services from "./pages/Services"
@@ -11,6 +12,7 @@ import Contact from "./pages/Contact"
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
+      <ScrollProgressBar />
       <Navbar />
       <main className="flex-1">
         <Routes>

@@ -79,7 +79,13 @@ export default function Projects() {
 
       {/* Filter bar */}
       <section className="bg-white px-6 pt-14 md:px-16">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-3">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-3"
+        >
           {filters.map((f) => {
             const isActive = active === f
             return (
@@ -105,7 +111,7 @@ export default function Projects() {
               </button>
             )
           })}
-        </div>
+        </motion.div>
       </section>
 
       {/* Project grid */}
