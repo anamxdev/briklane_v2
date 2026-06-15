@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 
-// TODO: Replace with the client's real WhatsApp number (country code + number, no symbols)
-const WHATSAPP_NUMBER = "91XXXXXXXXXX"
+const WHATSAPP_NUMBER = "919666880542"
 
 export default function WhatsAppBubble() {
   const [hovered, setHovered] = useState(false)

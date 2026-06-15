@@ -156,7 +156,7 @@ export default function Footer() {
             Sayeedabad, Hyderabad, TG - 500 059
           </address>
           <p className="mt-4 font-sans font-light text-cream/80" style={{ fontSize: "14px" }}>
-            +91 XXXXX XXXXX
+            +91 96668 80542
           </p>
           <p className="mt-2 font-sans font-light text-cream/80" style={{ fontSize: "14px" }}>
             info@briklane.in

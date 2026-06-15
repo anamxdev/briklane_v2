@@ -8,16 +8,20 @@ import team4 from "../assets/team-4.png"
 
 const values = [
   {
-    title: "Integrity & Trust",
-    desc: "We build relationships on transparency and honesty, earning the confidence of every client we serve.",
+    title: "Transparency & Trust",
+    desc: "Honest transactions, clear legal documentation, ethical business practices, and hassle-free property registrations at every step.",
   },
   {
-    title: "Quality Craftsmanship",
-    desc: "Every structure reflects our uncompromising commitment to materials, detail, and engineering excellence.",
+    title: "Quality & Excellence",
+    desc: "Premium construction, verified properties, and modern developments that meet the highest market standards.",
   },
   {
-    title: "On-Time Delivery",
-    desc: "Disciplined planning and execution ensure we honour our timelines without ever compromising on quality.",
+    title: "Client-First Approach",
+    desc: "Expert guidance, end-to-end support, and exceptional customer service for every homebuyer, investor, and business.",
+  },
+  {
+    title: "Growth & Value",
+    desc: "Strategic investments, sustainable developments, and long-term value creation for customers, investors, and communities.",
   },
 ]
 
@@ -64,14 +68,16 @@ export default function About() {
             </h2>
             <div className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
             <p className="mt-8 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "#4A5568" }}>
-              Briklane Infra Private Limited is a Hyderabad-based construction and infrastructure company built on a
-              foundation of trust, precision, and forward-thinking design. Since our inception, we have delivered
-              residential, commercial, and renovation projects that stand as a testament to our commitment to quality.
+              Briklane Infra Private Limited is a trusted and professionally managed real estate company dedicated to
+              helping clients buy, sell, and invest in properties with confidence. With extensive industry experience
+              and a customer-centric approach, we specialize in residential apartments, villas, independent houses,
+              commercial properties, farm houses, farm lands, and open plots.
             </p>
             <p className="mt-6 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "#4A5568" }}>
-              Our team of seasoned engineers, architects, and project managers approaches every build with meticulous
-              care, blending modern construction techniques with timeless craftsmanship. We don&apos;t just build
-              structures; we create spaces where communities thrive and futures take shape.
+              Our experienced team offers professional guidance at every stage of the process, ensuring a seamless,
+              efficient, and rewarding experience for every client. We believe that real estate is more than just
+              property transactions — it is about creating value, securing futures, and helping families and businesses
+              achieve their goals.
             </p>
           </motion.div>
 
@@ -92,7 +98,36 @@ export default function About() {
         </div>
       </section>
 
-      {/* Section 2 — Mission & Values */}
+      {/* Section 2 — Vision */}
+      <section className="bg-navy px-6 py-20 md:px-16 md:py-24">
+        <div className="mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center text-center"
+          >
+            <p
+              className="font-sans uppercase text-gold"
+              style={{ fontSize: "11px", letterSpacing: "4px", fontWeight: 400 }}
+            >
+              OUR VISION
+            </p>
+            <h2 className="mt-4 font-display font-semibold text-white text-balance" style={{ fontSize: "clamp(36px, 5vw, 48px)" }}>
+              Where We Are Headed
+            </h2>
+            <div className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
+            <p className="mt-8 font-sans text-cream" style={{ fontSize: "17px", lineHeight: 1.9, opacity: 0.85 }}>
+              To be a leading and trusted real estate company, delivering premium property solutions, innovative
+              developments, and long-term value to customers and investors. We are committed to excellence,
+              transparency, and sustainable growth while creating vibrant communities and investment opportunities.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Section 3 — Mission & Values */}
       <section className="bg-cream px-6 py-20 md:px-16 md:py-24">
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -107,11 +142,11 @@ export default function About() {
               className="font-display font-semibold text-navy text-balance"
               style={{ fontSize: "44px" }}
             >
-              Our Values
+              Our Mission
             </motion.h2>
             <motion.div variants={heading} className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
           </motion.div>
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
               <motion.div
                 key={v.title}

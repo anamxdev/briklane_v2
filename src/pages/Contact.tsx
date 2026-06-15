@@ -15,7 +15,7 @@ emailjs.init(PUBLIC_KEY)
 const fields = [
   { id: "name", name: "from_name", label: "Full Name", type: "text", placeholder: "Your full name" },
   { id: "email", name: "from_email", label: "Email Address", type: "email", placeholder: "you@example.com" },
-  { id: "phone", name: "phone", label: "Phone Number", type: "tel", placeholder: "+91 XXXXX XXXXX" },
+  { id: "phone", name: "phone", label: "Phone Number", type: "tel", placeholder: "+91 96668 80542" },
   { id: "subject", name: "subject", label: "Subject", type: "text", placeholder: "How can we help?" },
 ] as const
 
@@ -38,7 +38,7 @@ const infoBlocks = [
     label: "Address",
     lines: ["#16-1-30/1/25/1,", "Near Lokayuktha Colony Park,", "Sayeedabad, Hyderabad, TG - 500 059"],
   },
-  { icon: Phone, label: "Phone", lines: ["+91 XXXXX XXXXX"] },
+  { icon: Phone, label: "Phone", lines: ["+91 96668 80542"] },
   { icon: Mail, label: "Email", lines: ["info@briklane.in"] },
   { icon: Clock, label: "Working Hours", lines: ["Monday – Saturday", "9:00 AM – 6:00 PM"] },
 ]

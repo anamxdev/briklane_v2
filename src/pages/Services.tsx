@@ -4,28 +4,56 @@ import PageHero from "../components/PageHero"
 
 const services = [
   {
-    title: "Residential Construction",
-    desc: "From individual villas to multi-storey apartments, we craft homes that balance comfort, durability, and timeless design for modern family living.",
+    title: "Residential Apartments & Gated Communities",
+    desc: "Premium apartment projects and gated community developments designed for modern living.",
   },
   {
-    title: "Commercial Construction",
-    desc: "We deliver offices, retail outlets, and mixed-use developments engineered for performance, scale, and long-term operational efficiency.",
+    title: "Villas & Independent Houses",
+    desc: "Luxury villas and independent houses built to the highest standards of comfort and design.",
   },
   {
-    title: "Renovation & Remodeling",
-    desc: "Breathe new life into existing structures with thoughtful upgrades, structural improvements, and meticulous finishing that respects the original character.",
+    title: "Commercial Properties & Business Spaces",
+    desc: "Office spaces, retail units and commercial developments in prime Hyderabad locations.",
   },
   {
-    title: "Project Management",
-    desc: "Our experts provide end-to-end oversight, coordinating teams, budgets, and timelines to ensure every project is delivered seamlessly.",
+    title: "Farm Houses & Weekend Retreats",
+    desc: "Exclusive farm house developments and holiday stay properties for leisure and investment.",
   },
   {
-    title: "Interior Finishing",
-    desc: "Premium interior execution covering carpentry, flooring, lighting, and finishes that turn raw spaces into refined, functional environments.",
+    title: "Farm House Rentals & Holiday Stay Management",
+    desc: "Professional management of farm house rentals and holiday stays for owners and guests.",
   },
   {
-    title: "Site Development",
-    desc: "Comprehensive groundwork including land grading, drainage, roads, and utilities to prepare a strong foundation for any build.",
+    title: "Open Plots & DTCP/RERA Layouts",
+    desc: "Fully compliant open plot layouts with clear titles and approved DTCP/RERA documentation.",
+  },
+  {
+    title: "Property Investment Consultancy",
+    desc: "Strategic portfolio planning and investment consultancy to maximise your real estate returns.",
+  },
+  {
+    title: "Construction & Infrastructure Development",
+    desc: "End-to-end construction and infrastructure services delivered with quality and precision.",
+  },
+  {
+    title: "Real Estate Project Development & Management",
+    desc: "Full-cycle project development and management from concept to completion.",
+  },
+  {
+    title: "Property Marketing & Sales",
+    desc: "Targeted marketing and professional sales support to achieve the best outcomes for your property.",
+  },
+  {
+    title: "Legal Verification & Registration Assistance",
+    desc: "Complete documentation support, legal verification and hassle-free property registration.",
+  },
+  {
+    title: "Land Acquisition & Joint Ventures",
+    desc: "Strategic land acquisition, joint venture structuring and development opportunity identification.",
+  },
+  {
+    title: "End-to-End Real Estate Solutions",
+    desc: "Comprehensive real estate services for individuals, investors and businesses of all sizes.",
   },
 ]
 
