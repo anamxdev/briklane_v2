@@ -39,6 +39,11 @@ const fade = {
   }),
 }
 
+const heading = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
+}
+
 export default function About() {
   return (
     <>
@@ -90,12 +95,22 @@ export default function About() {
       {/* Section 2 — Mission & Values */}
       <section className="bg-cream px-6 py-20 md:px-16 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col items-center text-center">
-            <h2 className="font-display font-semibold text-navy text-balance" style={{ fontSize: "44px" }}>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+            className="flex flex-col items-center text-center"
+          >
+            <motion.h2
+              variants={heading}
+              className="font-display font-semibold text-navy text-balance"
+              style={{ fontSize: "44px" }}
+            >
               Our Values
-            </h2>
-            <div className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
-          </div>
+            </motion.h2>
+            <motion.div variants={heading} className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
+          </motion.div>
           <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {values.map((v, i) => (
               <motion.div
@@ -124,12 +139,22 @@ export default function About() {
       {/* Section 3 — Team */}
       <section className="bg-white px-6 py-20 md:px-16 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col items-center text-center">
-            <h2 className="font-display font-semibold text-navy text-balance" style={{ fontSize: "44px" }}>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+            className="flex flex-col items-center text-center"
+          >
+            <motion.h2
+              variants={heading}
+              className="font-display font-semibold text-navy text-balance"
+              style={{ fontSize: "44px" }}
+            >
               Our Leadership
-            </h2>
-            <div className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
-          </div>
+            </motion.h2>
+            <motion.div variants={heading} className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
+          </motion.div>
           <div className="mt-14 grid grid-cols-2 gap-8 lg:grid-cols-4">
             {team.map((member, i) => (
               <motion.div
@@ -165,9 +190,16 @@ export default function About() {
       {/* Section 4 — Certifications */}
       <section className="bg-cream px-6 py-16 md:px-16">
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-center font-display font-semibold text-navy text-balance" style={{ fontSize: "36px" }}>
+          <motion.h2
+            variants={heading}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-center font-display font-semibold text-navy text-balance"
+            style={{ fontSize: "36px" }}
+          >
             Certifications &amp; Affiliations
-          </h2>
+          </motion.h2>
           <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
             {certs.map((c, i) => (
               <motion.div

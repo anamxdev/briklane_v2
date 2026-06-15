@@ -37,22 +37,38 @@ const card = {
   }),
 }
 
+const heading = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+}
+
 export default function FeaturedProjects() {
   return (
     <section className="bg-cream px-6 py-20 md:px-16 md:py-24">
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
-        <div className="flex flex-col items-center text-center">
-          <h2
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
+          className="flex flex-col items-center text-center"
+        >
+          <motion.h2
+            variants={heading}
             className="font-display font-semibold text-navy text-balance"
             style={{ fontSize: "clamp(36px, 5vw, 52px)" }}
           >
             Signature Projects
-          </h2>
-          <p className="mt-3 font-sans" style={{ fontSize: "16px", fontWeight: 300, color: "#6B7280" }}>
+          </motion.h2>
+          <motion.p
+            variants={heading}
+            className="mt-3 font-sans"
+            style={{ fontSize: "16px", fontWeight: 300, color: "#6B7280" }}
+          >
             A glimpse into our craftsmanship across Hyderabad
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Cards */}
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">

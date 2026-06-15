@@ -1,5 +1,6 @@
+import { useRef } from "react"
 import { Link } from "react-router-dom"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import hero from "../../assets/hero.png"
 
@@ -16,13 +17,30 @@ const item = {
 }
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  // Scroll progress through the hero (0 at top, 1 once scrolled one viewport)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  })
+
+  // Background moves up at 40% of scroll speed (depth/parallax effect).
+  // Image is 150% tall, so -26.66% of its height == 40vh over a 100vh scroll, with no bottom gap.
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-26.66%"])
+
+  // Hero content fades out and drifts upward as the user scrolls past the hero.
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
+  const contentY = useTransform(scrollYProgress, [0, 0.6], [0, -80])
+
   return (
-    <section className="relative flex h-screen w-full items-center overflow-hidden">
-      {/* Background image */}
-      <img
+    <section ref={sectionRef} className="relative flex h-screen w-full items-center overflow-hidden">
+      {/* Background image (parallax) */}
+      <motion.img
         src={hero || "/placeholder.svg"}
         alt="Briklane Infra construction site in Hyderabad"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute left-0 top-0 w-full object-cover"
+        style={{ height: "150%", y: bgY }}
       />
       {/* Overlay */}
       <div
@@ -39,7 +57,7 @@ export default function Hero() {
         initial="hidden"
         animate="show"
         className="relative z-10 w-full px-6 lg:px-0"
-        style={{ paddingLeft: "10%" }}
+        style={{ paddingLeft: "10%", opacity: contentOpacity, y: contentY }}
       >
         <motion.div variants={item} className="mb-5 h-px bg-gold" style={{ width: "60px" }} />
 
