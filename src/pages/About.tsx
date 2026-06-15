@@ -110,7 +110,7 @@ export default function About() {
           >
             <p
               className="font-sans uppercase text-gold"
-              style={{ fontSize: "11px", letterSpacing: "4px", fontWeight: 400 }}
+              style={{ fontSize: "12px", letterSpacing: "4px", fontWeight: 400 }}
             >
               OUR VISION
             </p>

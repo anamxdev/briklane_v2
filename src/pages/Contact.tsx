@@ -30,7 +30,7 @@ function validateForm(form: HTMLFormElement): { valid: boolean; message: string 
   const message = (data.get("message") as string)?.trim()
 
   if (!name || !email || !phone || !subject || !message) {
-    return { valid: false, message: "All fields are mandatory." }
+    return { valid: false, message: "All fields are required." }
   }
   if (!emailRegex.test(email)) {
     return { valid: false, message: "Please enter a valid email address." }
@@ -52,6 +52,9 @@ const inputStyle = {
   fontSize: "16px",
   fontWeight: 400,
 } as const
+
+const MAPS_URL = "https://maps.app.goo.gl/wwL2NZSpfXrEFKPr7"
+const MAP_EMBED_URL = "https://www.google.com/maps?q=17.359292,78.515044&z=17&output=embed"
 
 const infoBlocks = [
   {
@@ -258,16 +261,26 @@ export default function Contact() {
               })}
             </div>
 
-            <div className="mt-10">
+            <div className="relative mt-10">
               <iframe
                 title="Briklane Infra location — Near Lokayuktha Colony Park, Sayeedabad, Hyderabad"
-                src="https://www.google.com/maps?q=17.358611,78.514444&z=17&output=embed"
+                src={MAP_EMBED_URL}
                 width="100%"
                 height="280"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 style={{ border: "1px solid #E2D9C8", borderRadius: 0, display: "block" }}
               />
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-2 bg-white px-4 py-2 font-sans font-semibold text-navy shadow-md transition-opacity duration-200 hover:opacity-90"
+                style={{ border: "1px solid #E2D9C8", fontSize: "14px" }}
+              >
+                <MapPin size={16} className="text-gold" aria-hidden="true" />
+                Open in Maps
+              </a>
             </div>
           </motion.div>
         </div>

@@ -49,7 +49,7 @@ export default function ServicesSnapshot() {
           <motion.p
             variants={heading}
             className="font-sans uppercase text-gold"
-            style={{ fontSize: "11px", letterSpacing: "4px", fontWeight: 400 }}
+            style={{ fontSize: "12px", letterSpacing: "4px", fontWeight: 400 }}
           >
             What We Do
           </motion.p>

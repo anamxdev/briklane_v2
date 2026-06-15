@@ -64,7 +64,7 @@ export default function WhyChooseUs() {
             className="font-display font-semibold text-white text-balance"
             style={{ fontSize: "clamp(36px, 5vw, 52px)" }}
           >
-            Why Choose Briklane Infra?
+            Why Choose Briklane?
           </motion.h2>
         </motion.div>
 

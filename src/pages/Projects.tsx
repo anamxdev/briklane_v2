@@ -140,7 +140,7 @@ export default function Projects() {
                   <div className="pt-6">
                     <p
                       className="font-sans uppercase text-gold"
-                      style={{ fontSize: "11px", letterSpacing: "3px", fontWeight: 400 }}
+                      style={{ fontSize: "12px", letterSpacing: "3px", fontWeight: 400 }}
                     >
                       {p.category}
                     </p>

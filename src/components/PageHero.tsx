@@ -25,7 +25,7 @@ export default function PageHero({ eyebrow, title }: PageHeroProps) {
       >
         <p
           className="font-sans uppercase text-gold"
-          style={{ fontSize: "11px", letterSpacing: "4px", fontWeight: 400 }}
+          style={{ fontSize: "12px", letterSpacing: "4px", fontWeight: 400 }}
         >
           {eyebrow}
         </p>

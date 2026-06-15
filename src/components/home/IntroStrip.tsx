@@ -20,7 +20,7 @@ export default function IntroStrip() {
         >
           <p
             className="font-sans uppercase text-gold"
-            style={{ fontSize: "11px", letterSpacing: "4px", fontWeight: 400 }}
+            style={{ fontSize: "12px", letterSpacing: "4px", fontWeight: 400 }}
           >
             About Briklane Infra
           </p>
