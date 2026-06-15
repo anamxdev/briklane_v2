@@ -159,7 +159,7 @@ export default function Footer() {
             +91 96668 80542
           </p>
           <p className="mt-2 font-sans font-light text-cream/80" style={{ fontSize: "14px" }}>
-            info@briklane.in
+            info@briklane.co.in
           </p>
           <p className="mt-2 font-sans font-light text-cream/80" style={{ fontSize: "14px" }}>
             Mon–Sat, 9AM–6PM

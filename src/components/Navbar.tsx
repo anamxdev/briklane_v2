@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import logo from "../assets/logo.png"
+import logo from "../assets/image.png"
 
 const links = [
   { label: "Home", to: "/" },
@@ -37,7 +37,8 @@ export default function Navbar() {
           <img
             src={logo || "/placeholder.svg"}
             alt="Briklane Infra Private Limited"
-            className="h-14 w-auto object-contain"
+            className="h-16 w-auto object-contain"
+            style={{ maxWidth: "200px" }}
           />
         </Link>
 
@@ -48,7 +49,7 @@ export default function Navbar() {
               key={link.to}
               to={link.to}
               className="group relative font-sans text-navy"
-              style={{ fontSize: "14px", letterSpacing: "0.6px" }}
+              style={{ fontSize: "16px", letterSpacing: "0.6px" }}
             >
               {({ isActive }) => (
                 <>

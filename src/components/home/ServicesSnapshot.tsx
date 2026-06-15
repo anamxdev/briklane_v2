@@ -11,8 +11,8 @@ const services = [
     desc: "Delivering offices, retail, and mixed-use spaces engineered for performance and scale.",
   },
   {
-    title: "Renovation & Remodeling",
-    desc: "Transforming existing spaces with thoughtful upgrades and meticulous finishing.",
+    title: "Farm House Rentals & Holiday Stay Management",
+    desc: "Professional management of farm house rentals and holiday stays for owners and guests.",
   },
   {
     title: "Project Management",
