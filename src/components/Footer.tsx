@@ -173,7 +173,7 @@ export default function Footer() {
           className="px-8 py-5 text-center font-sans font-light text-cream/50"
           style={{ fontSize: "12px" }}
         >
-          © 2025 Briklane Infra Private Limited. All Rights Reserved.
+          © 2026 Briklane Infra Private Limited. All Rights Reserved.
         </p>
       </div>
     </footer>

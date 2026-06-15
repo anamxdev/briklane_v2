@@ -8,10 +8,8 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string
 
-// Initialize EmailJS once with the public key
 emailjs.init(PUBLIC_KEY)
 
-// `name` matches the EmailJS template variable names
 const fields = [
   { id: "name", name: "from_name", label: "Full Name", type: "text", placeholder: "Your full name" },
   { id: "email", name: "from_email", label: "Email Address", type: "email", placeholder: "you@example.com" },
@@ -19,7 +17,30 @@ const fields = [
   { id: "subject", name: "subject", label: "Subject", type: "text", placeholder: "How can we help?" },
 ] as const
 
-type Status = "idle" | "loading" | "success" | "error"
+type Status = "idle" | "loading" | "success" | "error" | "invalid"
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+function validateForm(form: HTMLFormElement): { valid: boolean; message: string } {
+  const data = new FormData(form)
+  const name = (data.get("from_name") as string)?.trim()
+  const email = (data.get("from_email") as string)?.trim()
+  const phone = (data.get("phone") as string)?.trim()
+  const subject = (data.get("subject") as string)?.trim()
+  const message = (data.get("message") as string)?.trim()
+
+  if (!name || !email || !phone || !subject || !message) {
+    return { valid: false, message: "All fields are mandatory." }
+  }
+  if (!emailRegex.test(email)) {
+    return { valid: false, message: "Please enter a valid email address." }
+  }
+  const phoneDigits = phone.replace(/\D/g, "")
+  if (phoneDigits.length < 10) {
+    return { valid: false, message: "Please enter a valid phone number (at least 10 digits)." }
+  }
+  return { valid: true, message: "" }
+}
 
 const inputBase =
   "w-full bg-white font-sans text-navy outline-none transition-shadow duration-200 focus:shadow-[0_0_0_3px_rgba(201,163,56,0.12)]"
@@ -45,18 +66,28 @@ const infoBlocks = [
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle")
+  const [validationMsg, setValidationMsg] = useState("")
   const formRef = useRef<HTMLFormElement>(null)
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!formRef.current) return
+
+    const { valid, message } = validateForm(formRef.current)
+    if (!valid) {
+      setValidationMsg(message)
+      setStatus("invalid")
+      return
+    }
+
+    setValidationMsg("")
     setStatus("loading")
     try {
       await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       formRef.current.reset()
       setStatus("success")
     } catch (err) {
-      console.error("[v0] EmailJS sendForm failed:", err)
+      console.error("[EmailJS] sendForm failed:", err)
       setStatus("error")
     }
   }
@@ -97,12 +128,12 @@ export default function Contact() {
                       id={f.id}
                       name={f.name}
                       type={f.type}
-                      required
                       placeholder={f.placeholder}
                       className={inputBase}
                       style={inputStyle}
                       onFocus={(e) => (e.currentTarget.style.border = "1px solid #C9A338")}
                       onBlur={(e) => (e.currentTarget.style.border = "1px solid rgba(201,163,56,0.4)")}
+                      onChange={() => status === "invalid" && setStatus("idle")}
                     />
                   </div>
                 ))}
@@ -118,12 +149,12 @@ export default function Contact() {
                   <textarea
                     id="message"
                     name="message"
-                    required
                     placeholder="Tell us about your project"
                     className={inputBase}
                     style={{ ...inputStyle, minHeight: "140px", resize: "vertical" }}
                     onFocus={(e) => (e.currentTarget.style.border = "1px solid #C9A338")}
                     onBlur={(e) => (e.currentTarget.style.border = "1px solid rgba(201,163,56,0.4)")}
+                    onChange={() => status === "invalid" && setStatus("idle")}
                   />
                 </div>
               </div>
@@ -143,6 +174,21 @@ export default function Contact() {
                 {status === "loading" ? "Sending..." : "Send Message"}
               </button>
 
+              {status === "invalid" && (
+                <div
+                  role="alert"
+                  className="mt-6 border font-sans"
+                  style={{
+                    backgroundColor: "rgba(220,38,38,0.08)",
+                    borderColor: "rgba(220,38,38,0.4)",
+                    color: "#B91C1C",
+                    padding: "1rem 1.25rem",
+                    fontSize: "15px",
+                  }}
+                >
+                  {validationMsg}
+                </div>
+              )}
               {status === "success" && (
                 <div
                   role="status"
@@ -214,8 +260,8 @@ export default function Contact() {
 
             <div className="mt-10">
               <iframe
-                title="Briklane Infra location — Sayeedabad, Hyderabad"
-                src="https://www.google.com/maps?q=Sayeedabad,+Hyderabad&output=embed"
+                title="Briklane Infra location — Near Lokayuktha Colony Park, Sayeedabad, Hyderabad"
+                src="https://www.google.com/maps?q=17.358611,78.514444&z=17&output=embed"
                 width="100%"
                 height="280"
                 loading="lazy"
