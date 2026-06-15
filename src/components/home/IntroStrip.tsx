@@ -39,10 +39,17 @@ export default function IntroStrip() {
             className="mt-6 font-sans"
             style={{ fontSize: "16px", lineHeight: 1.9, color: "#4A5568" }}
           >
-            At Briklane Infra, we believe great construction begins with integrity. For over a decade
-            we have delivered residential and commercial landmarks across Hyderabad, combining precise
-            engineering with uncompromising craftsmanship. Every project we undertake is a promise of
-            quality, transparency, and lasting value for the communities we serve.
+            Briklane Infra Private Limited is a trusted and professionally managed real estate company dedicated to
+            helping clients buy, sell, and invest in properties with confidence. With extensive industry experience and
+            a customer-centric approach, we specialize in residential apartments, villas, commercial properties, farm
+            houses, farm lands, and open plots.
+          </p>
+          <p
+            className="mt-6 font-sans"
+            style={{ fontSize: "16px", lineHeight: 1.9, color: "#4A5568" }}
+          >
+            We believe that real estate is more than just property transactions &mdash; it is about creating value,
+            securing futures, and helping families and businesses achieve their goals.
           </p>
 
           <Link

@@ -74,9 +74,9 @@ export default function Hero() {
           className="mt-4 font-display font-bold text-white text-balance"
           style={{ fontSize: "clamp(44px, 7vw, 80px)", lineHeight: 1.05, maxWidth: "700px" }}
         >
-          Building Trust,
+          Building Landmarks,
           <br />
-          Creating Futures
+          Enriching Lives.
         </motion.h1>
 
         <motion.p
@@ -84,7 +84,7 @@ export default function Hero() {
           className="mt-6 font-sans text-cream"
           style={{ fontSize: "18px", fontWeight: 300, opacity: 0.85, maxWidth: "500px" }}
         >
-          Delivering excellence in construction and infrastructure across Hyderabad since 2010.
+          Your trusted partner in real estate, construction and infrastructure development across Hyderabad.
         </motion.p>
 
         <motion.div variants={item} className="mt-10 flex flex-wrap items-center" style={{ gap: "1rem" }}>
