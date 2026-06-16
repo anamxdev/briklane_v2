@@ -75,7 +75,7 @@ const socials = [
 ]
 
 function HeadingRule() {
-  return <div className="mb-6 mt-2 h-px w-9 bg-gold" />
+  return <div className="mx-auto mb-6 mt-2 h-px w-9 bg-gold" />
 }
 
 export default function Footer() {
@@ -87,21 +87,34 @@ export default function Footer() {
       {/* Main body */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-8 py-20 md:grid-cols-3 md:gap-16">
         {/* Column 1 — Brand */}
-        <div>
-          <div className="font-display font-bold" style={{ fontSize: "28px", letterSpacing: "3px" }}>
-            <span className="text-cream">BRIK</span>
-            <span className="text-gold">LANE</span>
+        <div className="text-center">
+          <div
+            className="font-display font-bold"
+            style={{ fontSize: "28px", letterSpacing: "3px" }}
+          >
+            <span className="text-cream">BRIKL</span>
+            <span className="text-gold">A</span>
+            <span className="text-cream">NE</span>
           </div>
+
           <p
             className="mt-1 font-sans font-light uppercase text-gold"
             style={{ fontSize: "11px", letterSpacing: "3px" }}
           >
             Infra Private Limited
           </p>
-          <p className="mt-4 font-sans font-light italic text-cream/75" style={{ fontSize: "14px" }}>
+
+          <p
+            className="mt-4 font-sans font-light italic text-cream/75"
+            style={{ fontSize: "14px" }}
+          >
             Building Trust | Creating Futures
           </p>
-          <div className="mt-6 flex" style={{ gap: "1rem" }}>
+
+          <div
+            className="mt-6 flex justify-center"
+            style={{ gap: "1rem" }}
+          >
             {socials.map(({ label, Icon, href }) => (
               <a
                 key={label}
@@ -116,17 +129,22 @@ export default function Footer() {
         </div>
 
         {/* Column 2 — Quick Links */}
-        <div>
-          <h3 className="font-display font-semibold text-gold" style={{ fontSize: "20px" }}>
+        <div className="text-center">
+          <h3
+            className="font-display font-semibold text-gold"
+            style={{ fontSize: "20px" }}
+          >
             Quick Links
           </h3>
+
           <HeadingRule />
-          <ul>
+
+          <ul className="mt-4 flex flex-col items-center">
             {quickLinks.map((link) => (
               <li key={link.to} className="mt-3 first:mt-0">
                 <Link
                   to={link.to}
-                  className="group inline-flex items-center font-sans font-light text-cream/80 transition-colors duration-200 hover:text-gold"
+                  className="group inline-flex items-center justify-center font-sans font-light text-cream/80 transition-colors duration-200 hover:text-gold"
                   style={{ fontSize: "14px" }}
                 >
                   <span className="mr-0 w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-3 group-hover:opacity-100">
@@ -140,13 +158,18 @@ export default function Footer() {
         </div>
 
         {/* Column 3 — Contact */}
-        <div>
-          <h3 className="font-display font-semibold text-gold" style={{ fontSize: "20px" }}>
+        <div className="text-center">
+          <h3
+            className="font-display font-semibold text-gold"
+            style={{ fontSize: "20px" }}
+          >
             Get In Touch
           </h3>
+
           <HeadingRule />
+
           <address
-            className="font-sans font-light not-italic text-cream/80"
+            className="font-sans font-light not-italic text-center text-cream/80"
             style={{ fontSize: "14px", lineHeight: 1.9 }}
           >
             #16-1-30/1/25/1,
@@ -155,13 +178,25 @@ export default function Footer() {
             <br />
             Sayeedabad, Hyderabad, TG - 500 059
           </address>
-          <p className="mt-4 font-sans font-light text-cream/80" style={{ fontSize: "14px" }}>
+
+          <p
+            className="mt-4 font-sans font-light text-cream/80"
+            style={{ fontSize: "14px" }}
+          >
             +91 96668 80542
           </p>
-          <p className="mt-2 font-sans font-light text-cream/80" style={{ fontSize: "14px" }}>
+
+          <p
+            className="mt-2 font-sans font-light text-cream/80"
+            style={{ fontSize: "14px" }}
+          >
             info@briklane.co.in
           </p>
-          <p className="mt-2 font-sans font-light text-cream/80" style={{ fontSize: "14px" }}>
+
+          <p
+            className="mt-2 font-sans font-light text-cream/80"
+            style={{ fontSize: "14px" }}
+          >
             Mon–Sat, 9AM–6PM
           </p>
         </div>

@@ -9,6 +9,7 @@ import About from "./pages/About"
 import Services from "./pages/Services"
 import Projects from "./pages/Projects"
 import Contact from "./pages/Contact"
+import NotFound from "./components/NotFound"
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
