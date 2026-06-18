@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import logo from "../assets/image.png"
+import logo from "../assets/logo.png"
 
 const links = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Projects", to: "/projects" },
+  { label: "Ongoing Projects", to: "/ongoing-projects" },
+  { label: "Completed Projects", to: "/completed-projects" },
   { label: "Contact", to: "/contact" },
 ]
 
@@ -37,19 +38,18 @@ export default function Navbar() {
           <img
             src={logo || "/placeholder.svg"}
             alt="Briklane Infra Private Limited"
-            className="h-16 w-auto object-contain"
-            style={{ maxWidth: "200px" }}
+            style={{ height: "72px", width: "auto", objectFit: "contain" }}
           />
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center lg:flex" style={{ gap: "36px" }}>
+        <div className="hidden items-center lg:flex" style={{ gap: "28px" }}>
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className="group relative font-sans text-navy"
-              style={{ fontSize: "16px", letterSpacing: "0.6px" }}
+              style={{ fontSize: "15px", letterSpacing: "0.4px" }}
             >
               {({ isActive }) => (
                 <>

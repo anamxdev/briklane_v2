@@ -1,5 +1,6 @@
 import Hero from "../components/home/Hero"
 import IntroStrip from "../components/home/IntroStrip"
+import VideoSection from "../components/home/VideoSection"
 import WhyChooseUs from "../components/home/WhyChooseUs"
 import ServicesSnapshot from "../components/home/ServicesSnapshot"
 import FeaturedProjects from "../components/home/FeaturedProjects"
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <Hero />
       <IntroStrip />
+      <VideoSection />
       <WhyChooseUs />
       <ServicesSnapshot />
       <FeaturedProjects />
