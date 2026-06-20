@@ -1,14 +1,9 @@
 import { useRef, useState, type FormEvent } from "react"
 import { motion } from "framer-motion"
-import emailjs from "emailjs-com"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import PageHero from "../components/PageHero"
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string
-
-emailjs.init(PUBLIC_KEY)
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string
 
 const fields = [
   { id: "name", name: "from_name", label: "Full Name", type: "text", placeholder: "Your full name" },
@@ -62,7 +57,7 @@ const infoBlocks = [
     label: "Address",
     lines: ["#16-1-30/1/25/1,", "Near Lokayuktha Colony Park,", "Sayeedabad, Hyderabad, TG - 500 059"],
   },
-  { icon: Phone, label: "Phone", lines: ["+91 96668 80542"] },
+  { icon: Phone, label: "Phone", lines: ["+91 7095 658 707 | +91 9666 880 542"] },
   { icon: Mail, label: "Email", lines: ["info@briklane.co.in"] },
   { icon: Clock, label: "Working Hours", lines: ["Monday – Saturday", "9:00 AM – 6:00 PM"] },
 ]
@@ -73,27 +68,46 @@ export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null)
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    if (!formRef.current) return
+  e.preventDefault()
+  if (!formRef.current) return
 
-    const { valid, message } = validateForm(formRef.current)
-    if (!valid) {
-      setValidationMsg(message)
-      setStatus("invalid")
-      return
-    }
+  const { valid, message } = validateForm(formRef.current)
 
-    setValidationMsg("")
-    setStatus("loading")
-    try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+  if (!valid) {
+    setValidationMsg(message)
+    setStatus("invalid")
+    return
+  }
+
+  setValidationMsg("")
+  setStatus("loading")
+
+  try {
+    const formData = new FormData(formRef.current)
+
+    formData.append("access_key", ACCESS_KEY)
+
+    const response = await fetch(
+      "https://api.web3forms.com/submit",
+      {
+        method: "POST",
+        body: formData,
+      }
+    )
+
+    const result = await response.json()
+
+    if (result.success) {
       formRef.current.reset()
       setStatus("success")
-    } catch (err) {
-      console.error("[EmailJS] sendForm failed:", err)
+    } else {
       setStatus("error")
     }
+  } catch (err) {
+    console.error(err)
+    setStatus("error")
   }
+}
 
   return (
     <>
@@ -111,9 +125,6 @@ export default function Contact() {
             <h2 className="font-display font-semibold text-navy" style={{ fontSize: "40px", lineHeight: 1.1 }}>
               Send Us a Message
             </h2>
-            <p className="mt-2 font-sans" style={{ fontSize: "16px", fontWeight: 300, color: "#6B7280" }}>
-              We&apos;ll get back to you within 24 hours
-            </p>
             <div className="mb-10 mt-4 h-px bg-gold" style={{ width: "60px" }} />
 
             <form ref={formRef} onSubmit={handleSubmit} noValidate>
