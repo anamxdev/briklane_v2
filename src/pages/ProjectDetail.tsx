@@ -297,19 +297,16 @@ export default function ProjectDetail() {
           <h2 className="font-display font-bold text-white text-balance" style={{ fontSize: "44px" }}>
             Interested in this project?
           </h2>
-          <p className="mt-3 font-sans text-cream" style={{ fontSize: "16px", fontWeight: 300 }}>
-            Call us or send a message — we&apos;ll respond within 24 hours.
-          </p>
+          
 
           <div className="mt-8 flex flex-wrap justify-center gap-12">
-            <a
-              href="tel:+919666880542"
-              className="flex items-center gap-3 font-sans text-cream transition-opacity hover:opacity-80"
+            <p
+              className="flex items-center gap-3 font-sans text-cream transition-opacity"
               style={{ fontSize: "16px", fontWeight: 400 }}
             >
               <Phone size={20} className="text-gold" aria-hidden="true" />
-              +91 96668 80542
-            </a>
+              +91 7095 658 707 | +91 9666 880 542
+            </p>
             <a
               href="mailto:info@briklane.co.in"
               className="flex items-center gap-3 font-sans text-cream transition-opacity hover:opacity-80"
