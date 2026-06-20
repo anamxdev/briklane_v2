@@ -8,9 +8,9 @@ export const projects = [
     area: "",
     description:
       "A premium 4BHK ultra luxury residential development at Asmangarh — natural air-conditioned apartments designed for lifestyle beyond imagination, with quality construction and thoughtful infrastructure.",
-    images: ["/img/classic-one-1.jpg"],
-    features: "/img/classic-one-1.jpg",
-    amenities: "/img/classic-one-1.jpg",
+    images: ["/img/classic-one.jpg"],
+    features: "/img/classic-one.jpg",
+    amenities: "/img/classic-one.jpg",
     locationMap: "/img/placeholder-location.jpg",
     youtubeId: "",
   },

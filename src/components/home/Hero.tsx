@@ -10,7 +10,7 @@ const slides = [
     subheading: "Spaces designed to elevate your experiences and enrich your life.",
     projectName: "Classic One",
     location: "Asmangarh",
-    image: "/img/classic-one-1.jpg",
+    image: "/img/classic-one.jpg",
     link: "/project/asmangarh-new-malakpet",
   },
   {
