@@ -12,16 +12,20 @@ export default function VideoSection() {
           className="relative w-full overflow-hidden"
           style={{ borderLeft: "4px solid #C9A338", aspectRatio: "16 / 9" }}
         >
-          {/* Add video file at public/videos/briklane-video.mp4 */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          >
-            <source src="/videos/briklane-video.mp4" type="video/mp4" />
-          </video>
+        
+        <video
+  autoPlay
+  muted
+  loop
+  playsInline
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+  }}
+>
+  <source src="/videos/briklane-video.mp4" type="video/mp4" />
+</video>
         </motion.div>
       </div>
     </section>

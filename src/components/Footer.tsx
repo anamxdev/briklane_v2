@@ -184,7 +184,7 @@ export default function Footer() {
             className="mt-4 font-sans font-light text-cream/80"
             style={{ fontSize: "14px" }}
           >
-            +91 96668 80542
+            +91 7095 658 707 | +91 9666 880 542
           </p>
 
           <p

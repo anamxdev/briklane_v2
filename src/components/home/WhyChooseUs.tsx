@@ -25,7 +25,7 @@ const reasons = [
   {
     icon: MapPin,
     title: "Strategic Locations",
-    desc: "Properties in high-growth areas with strong investment potential across Hyderabad.",
+    desc: "Properties in high-growth areas with strong investment potential.",
   },
   {
     icon: Handshake,

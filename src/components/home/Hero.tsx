@@ -5,22 +5,20 @@ import { ChevronDown } from "lucide-react"
 
 const slides = [
   {
-    eyebrow: "ONGOING PROJECT — NEW MALAKPET",
-    heading: "Building Landmarks,\nEnriching Lives.",
-    subheading:
-      "A premium residential development in the well-connected locality of New Malakpet, Hyderabad.",
-    projectName: "Asmangarh",
-    location: "New Malakpet, Hyderabad",
-    image: "/img/asmangarh-1.jpg",
+    eyebrow: "CLASSIC ONE, Asmangarh",
+    heading: "Where Every Day Feels Exceptional",
+    subheading: "Spaces designed to elevate your experiences and enrich your life.",
+    projectName: "Classic One",
+    location: "Asmangarh",
+    image: "/img/classic-one-1.jpg",
     link: "/project/asmangarh-new-malakpet",
   },
   {
-    eyebrow: "ONGOING PROJECT — NEW SAYEEDABAD",
-    heading: "Building Landmarks,\nEnriching Lives.",
-    subheading:
-      "A thoughtfully developed residential project in the heart of Sayeedabad, Hyderabad.",
+    eyebrow: "New Sayeedabad Colony",
+    heading: "Elevate Every Moment.",
+    subheading: "Thoughtfully designed homes that blend luxury, comfort, and sophistication.",
     projectName: "New Sayeedabad Colony",
-    location: "New Sayeedabad, Hyderabad",
+    location: "Sayeedabad, Hyderabad",
     image: "/img/sayeedabad-1.jpg",
     link: "/project/new-sayeedabad-colony",
   },
@@ -73,13 +71,8 @@ export default function Hero() {
         }
       `}</style>
 
-      {/* Flex container — column on mobile, row on desktop */}
       <div className="flex h-full flex-col md:flex-row">
-
-        {/* ── LEFT PANEL — white, 45% on desktop ── */}
-        <div
-          className="relative flex items-center bg-white py-16 md:w-[45%] md:py-0"
-        >
+        <div className="relative flex items-center bg-navy py-16 md:w-[45%] md:py-0">
           <div className="w-full" style={{ padding: "0 8% 0 10%" }}>
             <AnimatePresence mode="wait">
               <motion.div
@@ -89,13 +82,11 @@ export default function Hero() {
                 animate="center"
                 exit="exit"
               >
-                {/* Gold rule */}
                 <motion.div
                   variants={childVariants}
                   style={{ width: "50px", height: "1px", backgroundColor: "#C9A338" }}
                 />
 
-                {/* Eyebrow */}
                 <motion.p
                   variants={childVariants}
                   className="mt-3 font-sans uppercase"
@@ -104,12 +95,10 @@ export default function Hero() {
                   {slide.eyebrow}
                 </motion.p>
 
-                {/* Heading */}
                 <motion.h1
                   variants={childVariants}
-                  className="mt-5 font-display font-bold"
+                  className="mt-5 font-display font-bold text-white"
                   style={{
-                    color: "#1C2741",
                     fontSize: "clamp(36px, 4.5vw, 58px)",
                     lineHeight: 1.05,
                     whiteSpace: "pre-line",
@@ -118,12 +107,10 @@ export default function Hero() {
                   {slide.heading}
                 </motion.h1>
 
-                {/* Subheading */}
                 <motion.p
                   variants={childVariants}
-                  className="mt-5 font-sans"
+                  className="mt-5 font-sans text-cream/80"
                   style={{
-                    color: "#4A5568",
                     fontSize: "16px",
                     fontWeight: 300,
                     lineHeight: 1.85,
@@ -133,7 +120,6 @@ export default function Hero() {
                   {slide.subheading}
                 </motion.p>
 
-                {/* Buttons */}
                 <motion.div
                   variants={childVariants}
                   className="mt-8 flex flex-wrap"
@@ -156,25 +142,26 @@ export default function Hero() {
                   </Link>
                   <Link
                     to="/contact"
-                    className="font-sans font-semibold uppercase"
+                    className="font-sans font-semibold uppercase text-white"
                     style={{
-                      border: "1px solid #1C2741",
-                      color: "#1C2741",
+                      border: "1px solid rgba(255,255,255,0.6)",
                       backgroundColor: "transparent",
                       fontSize: "12px",
                       letterSpacing: "1.5px",
                       padding: "12px 28px",
                       borderRadius: 0,
                       display: "inline-block",
-                      transition: "background-color 0.2s ease, color 0.2s ease",
+                      transition: "background-color 0.2s ease, border-color 0.2s ease",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#1C2741"
-                      e.currentTarget.style.color = "white"
+                      e.currentTarget.style.backgroundColor = "#C9A338"
+                      e.currentTarget.style.borderColor = "#C9A338"
+                      e.currentTarget.style.color = "#1C2741"
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "transparent"
-                      e.currentTarget.style.color = "#1C2741"
+                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.6)"
+                      e.currentTarget.style.color = "white"
                     }}
                   >
                     Contact Us
@@ -184,7 +171,6 @@ export default function Hero() {
             </AnimatePresence>
           </div>
 
-          {/* Scroll chevron — desktop only */}
           <motion.div
             className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block"
             animate={{ y: [0, 8, 0] }}
@@ -194,10 +180,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── RIGHT PANEL — image, 55% on desktop, 50vh on mobile ── */}
         <div className="relative h-[50vh] overflow-hidden md:h-auto md:flex-1">
-
-          {/* Fading image */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
@@ -207,18 +190,16 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {/* Separate key so React remounts the img, restarting the CSS animation */}
               <img
                 key={`img-${activeIndex}`}
                 src={slide.image}
                 alt={slide.projectName}
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ animation: "slowPan 8s ease-in-out infinite alternate" }}
+                style={{ animation: "8s ease-in-out infinite alternate" }}
               />
             </motion.div>
           </AnimatePresence>
 
-          {/* Bottom gradient + project label */}
           <div
             className="absolute bottom-0 left-0 right-0 z-10 flex flex-col justify-end"
             style={{
@@ -239,7 +220,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Dot indicators */}
           <div
             className="absolute z-20 flex items-center"
             style={{ bottom: "24px", right: "32px", gap: "8px" }}

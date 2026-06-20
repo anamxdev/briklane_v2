@@ -28,27 +28,26 @@ export default function Navbar() {
     <header
       className="sticky top-0 z-50 bg-white transition-shadow duration-300"
       style={{
-        borderBottom: "1px solid rgba(201, 163, 56, 0.25)",
-        boxShadow: scrolled ? "0 2px 20px rgba(28,39,65,0.08)" : "none",
+        borderBottom: "1px solid rgba(201, 163, 56, 0.35)",
+        boxShadow: scrolled ? "0 4px 24px rgba(0,0,0,0.25)" : "none",
       }}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
-        {/* Logo */}
-        <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
+      <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-2 md:px-8 md:py-3">
+        <Link to="/" className="flex shrink-0 items-center" onClick={() => setOpen(false)}>
           <img
-            src={logo || "/placeholder.svg"}
+            src={logo}
             alt="Briklane Infra Private Limited"
-            style={{ height: "72px", width: "auto", objectFit: "contain" }}
+            className="w-auto object-contain"
+            style={{ height: "clamp(48px, 6vw, 76px)", maxWidth: "min(420px, 58vw)" }}
           />
         </Link>
 
-        {/* Desktop nav */}
         <div className="hidden items-center lg:flex" style={{ gap: "28px" }}>
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
-              className="group relative font-sans text-navy"
+              className="group relative font-sans text-navy/90 transition-colors hover:text-navy"
               style={{ fontSize: "15px", letterSpacing: "0.4px" }}
             >
               {({ isActive }) => (
@@ -64,7 +63,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
         <div className="hidden lg:block">
           <Link
             to="/contact"
@@ -77,11 +75,10 @@ export default function Navbar() {
               borderRadius: 0,
             }}
           >
-            Get a Quote
+            Contact Us
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           type="button"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -93,7 +90,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile dropdown */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -102,7 +98,7 @@ export default function Navbar() {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.28, ease: "easeInOut" }}
             className="overflow-hidden bg-white lg:hidden"
-            style={{ borderTop: "1px solid rgba(201, 163, 56, 0.25)" }}
+            style={{ borderTop: "1px solid rgba(201, 163, 56, 0.35)" }}
           >
             <div className="flex flex-col px-6 py-4">
               {links.map((link) => (
@@ -111,7 +107,7 @@ export default function Navbar() {
                   to={link.to}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `py-3 font-sans text-navy ${isActive ? "text-gold" : ""}`
+                    `py-3 font-sans text-navy/90 ${isActive ? "text-gold" : ""}`
                   }
                   style={{ fontSize: "15px", letterSpacing: "0.6px" }}
                 >
@@ -129,7 +125,7 @@ export default function Navbar() {
                   borderRadius: 0,
                 }}
               >
-                Get a Quote
+                Contact Us
               </Link>
             </div>
           </motion.div>
