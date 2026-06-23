@@ -38,7 +38,12 @@ export default function Navbar() {
             src={logo}
             alt="Briklane Infra Private Limited"
             className="w-auto object-contain"
-            style={{ height: "clamp(48px, 6vw, 76px)", maxWidth: "min(420px, 58vw)" }}
+            style={{
+              height: "120px",
+              marginTop: "-15px",
+              marginBottom: "-12px",
+              width: "24vw",
+            }}
           />
         </Link>
 

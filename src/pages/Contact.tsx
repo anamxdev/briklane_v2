@@ -257,7 +257,7 @@ export default function Contact() {
                 return (
                   <div key={block.label} className={`flex gap-4 ${i > 0 ? "mt-6" : ""}`}>
                     <Icon className="mt-1 shrink-0 text-gold" size={20} aria-hidden="true" />
-                    <div className="font-sans" style={{ color: "#4A5568", fontSize: "16px", lineHeight: 1.9 }}>
+                    <div className="font-sans" style={{ color: "black", fontSize: "16px", lineHeight: 1.9 }}>
                       <span className="font-medium text-navy">{block.label}</span>
                       <br />
                       {block.lines.map((line) => (

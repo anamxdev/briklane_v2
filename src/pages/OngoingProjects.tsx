@@ -29,7 +29,7 @@ export default function OngoingProjects() {
       </section>
 
       <ProjectsCta
-        heading="Interested in an ongoing project?"
+        heading="Interested?"
         sub="Contact us today for site visits and pricing information."
       />
     </>

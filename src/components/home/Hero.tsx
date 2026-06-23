@@ -22,6 +22,15 @@ const slides = [
     image: "/img/sayeedabad-1.jpg",
     link: "/project/new-sayeedabad-colony",
   },
+  {
+    eyebrow: "Taj Residence, Azampura",
+    heading: "The Art of Luxurious Living",
+    subheading: "Elegant residences created for those who appreciate the finer things in life.",
+    projectName: "Taj Residence",
+    location: "Azampura, Hyderabad",
+    image: "/img/taj-residence-1.jpg",  
+    link: "/project/azampura",
+  },
 ]
 
 const childVariants = {

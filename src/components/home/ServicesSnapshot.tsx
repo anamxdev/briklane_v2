@@ -79,12 +79,12 @@ export default function ServicesSnapshot() {
             >
               <div className="h-0.5 bg-gold" style={{ width: "40px" }} />
               <h3
-                className="mt-5 font-display font-semibold text-navy"
+                className="mt-5 font-display font-bold text-navy"
                 style={{ fontSize: "24px" }}
               >
                 {s.title}
               </h3>
-              <p className="mt-3 font-sans" style={{ fontSize: "15px", lineHeight: 1.8, color: "#6B7280" }}>
+              <p className="mt-3 font-sans" style={{ fontSize: "15px", lineHeight: 1.8, color: "#030E27" }}>
                 {s.desc}
               </p>
               <Link

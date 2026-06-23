@@ -67,13 +67,13 @@ export default function About() {
               Who We Are
             </h2>
             <div className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
-            <p className="mt-8 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "#4A5568" }}>
+            <p className="mt-8 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "black" }}>
               Briklane Infra Private Limited is a trusted and professionally managed real estate company dedicated to
               helping clients buy, sell, and invest in properties with confidence. With extensive industry experience
               and a customer-centric approach, we specialize in residential apartments, villas, independent houses,
               commercial properties, farm houses, farm lands, and open plots.
             </p>
-            <p className="mt-6 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "#4A5568" }}>
+            <p className="mt-6 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "black" }}>
               Our experienced team offers professional guidance at every stage of the process, ensuring a seamless,
               efficient, and rewarding experience for every client. We believe that real estate is more than just
               property transactions — it is about creating value, securing futures, and helping families and businesses
@@ -162,7 +162,7 @@ export default function About() {
                 <h3 className="mt-5 font-display font-semibold text-navy" style={{ fontSize: "24px" }}>
                   {v.title}
                 </h3>
-                <p className="mt-3 font-sans" style={{ fontSize: "15px", lineHeight: 1.8, color: "#6B7280" }}>
+                <p className="mt-3 font-sans" style={{ fontSize: "15px", lineHeight: 1.8, color: "black" }}>
                   {v.desc}
                 </p>
               </motion.div>

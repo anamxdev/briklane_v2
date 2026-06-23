@@ -60,7 +60,7 @@ export default function ProjectCard({ project, index, variant }: ProjectCardProp
           >
             {project.status}
           </span>
-          <h2 className="font-display font-semibold text-navy" style={{ fontSize: "28px" }}>
+          <h2 className="font-display font-bold text-navy" style={{ fontSize: "28px" }}>
             {project.name}
           </h2>
           <p className="mt-2 font-sans" style={{ fontSize: "15px", fontWeight: 300, color: "#6B7280" }}>
@@ -68,7 +68,7 @@ export default function ProjectCard({ project, index, variant }: ProjectCardProp
           </p>
           <p
             className="mt-3 line-clamp-3 font-sans"
-            style={{ fontSize: "15px", lineHeight: 1.8, color: "#4A5568" }}
+            style={{ fontSize: "15px", lineHeight: 1.8, color: "black" }}
           >
             {project.description}
           </p>

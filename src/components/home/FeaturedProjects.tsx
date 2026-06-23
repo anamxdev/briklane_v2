@@ -74,10 +74,10 @@ export default function FeaturedProjects() {
                 >
                   {project.type} &middot; {project.location}
                 </p>
-                <h3 className="mt-2 font-display font-semibold text-navy" style={{ fontSize: "24px" }}>
+                <h3 className="mt-2 font-display font-bold text-navy" style={{ fontSize: "24px" }}>
                   {project.name}
                 </h3>
-                <p className="mt-2 line-clamp-2 font-sans" style={{ fontSize: "14px", lineHeight: 1.8, color: "#6B7280" }}>
+                <p className="mt-2 line-clamp-2 font-sans" style={{ fontSize: "14px", lineHeight: 1.8, color: "#030E27" }}>
                   {project.description}
                 </p>
                 <Link
