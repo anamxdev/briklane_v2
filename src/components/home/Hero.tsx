@@ -1,38 +1,42 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
-import { ChevronDown } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 
 const slides = [
   {
-    eyebrow: "CLASSIC ONE, Asmangarh",
-    heading: "Where Every Day Feels Exceptional",
-    subheading: "Spaces designed to elevate your experiences and enrich your life.",
+    headingLight: "The Art of",
+    headingBold: "Luxurious Living",
+    subheading:
+      "Elegant residences created for those who appreciate the finer things in life.",
+    projectName: "Taj Residency",
+    location: "Azampura, Hyderabad",
+    image: "/img/taj-residence-1.jpg",
+    link: "/project/azampura",
+  },
+  {
+    headingLight: "Inspiring you to",
+    headingBold: "rise high",
+    subheading:
+      "Maphar Decent Tower, the property stands tall at Mehdipatnam spanning to a rise of 8 floors.",
     projectName: "Classic One",
     location: "Asmangarh",
     image: "/img/classic-one.jpg",
     link: "/project/asmangarh-new-malakpet",
   },
   {
-    eyebrow: "New Sayeedabad Colony",
-    heading: "Elevate Every Moment.",
-    subheading: "Thoughtfully designed homes that blend luxury, comfort, and sophistication.",
+    headingLight: "Elevate Every",
+    headingBold: "Moment.",
+    subheading:
+      "Thoughtfully designed homes that blend luxury, comfort, and sophistication.",
     projectName: "New Sayeedabad Colony",
     location: "Sayeedabad, Hyderabad",
     image: "/img/sayeedabad-1.jpg",
     link: "/project/new-sayeedabad-colony",
   },
-  {
-    eyebrow: "Taj Residence, Azampura",
-    heading: "The Art of Luxurious Living",
-    subheading: "Elegant residences created for those who appreciate the finer things in life.",
-    projectName: "Taj Residence",
-    location: "Azampura, Hyderabad",
-    image: "/img/taj-residence-1.jpg",  
-    link: "/project/azampura",
-  },
 ]
 
+// Left text: slide in from right, exit to left — matches original working animation
 const childVariants = {
   enter: { x: 60, opacity: 0 },
   center: {
@@ -53,6 +57,47 @@ const containerVariants = {
   exit: {},
 }
 
+// Right image: slide in from bottom, exit to top — no fade
+const imageVariants = {
+  enter: { y: "100%", opacity: 1 },
+  center: {
+    y: "0%",
+    opacity: 1,
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
+  },
+  exit: {
+    y: "-100%",
+    opacity: 1,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+}
+
+// Decorative circle-ring SVG — matches the subtle arc pattern visible in the screenshot
+function DecorativeRings() {
+  return (
+    <svg
+      aria-hidden="true"
+      style={{
+        position: "absolute",
+        right: "-80px",
+        top: "50%",
+        transform: "translateY(-50%)",
+        width: "420px",
+        height: "420px",
+        opacity: 0.08,
+        pointerEvents: "none",
+      }}
+      viewBox="0 0 420 420"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {[60, 110, 160, 200].map((r) => (
+        <circle key={r} cx="210" cy="210" r={r} stroke="#C9A338" strokeWidth="1" />
+      ))}
+    </svg>
+  )
+}
+
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [intervalKey, setIntervalKey] = useState(0)
@@ -69,20 +114,29 @@ export default function Hero() {
     setIntervalKey((k) => k + 1)
   }
 
+  function goPrev() {
+    goToSlide((activeIndex - 1 + slides.length) % slides.length)
+  }
+
+  function goNext() {
+    goToSlide((activeIndex + 1) % slides.length)
+  }
+
   const slide = slides[activeIndex]
 
   return (
     <section className="relative w-full overflow-hidden md:h-screen">
-      <style>{`
-        @keyframes slowPan {
-          0%   { transform: scale(1.08) translateY(-4%); }
-          100% { transform: scale(1.08) translateY(4%); }
-        }
-      `}</style>
-
       <div className="flex h-full flex-col md:flex-row">
-        <div className="relative flex items-center bg-navy py-16 md:w-[45%] md:py-0">
-          <div className="w-full" style={{ padding: "0 8% 0 10%" }}>
+
+        {/* ── LEFT PANEL: Text ── */}
+        <div
+          className="relative flex flex-col justify-center overflow-hidden bg-navy md:w-[45%]"
+          style={{ minHeight: "60vh" }}
+        >
+          <DecorativeRings />
+
+          {/* Main text content */}
+          <div style={{ padding: "0 8% 80px 10%" }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
@@ -91,168 +145,209 @@ export default function Hero() {
                 animate="center"
                 exit="exit"
               >
+                {/* Gold rule */}
                 <motion.div
                   variants={childVariants}
-                  style={{ width: "50px", height: "1px", backgroundColor: "#C9A338" }}
+                  style={{ width: "44px", height: "1px", backgroundColor: "#C9A338" }}
                 />
 
+                {/* Eyebrow — building name */}
                 <motion.p
                   variants={childVariants}
-                  className="mt-3 font-sans uppercase"
-                  style={{ color: "#C9A338", fontSize: "11px", letterSpacing: "4px", fontWeight: 400 }}
+                  className="font-sans uppercase"
+                  style={{
+                    color: "#C9A338",
+                    fontSize: "11px",
+                    letterSpacing: "4px",
+                    fontWeight: 400,
+                    marginTop: "12px",
+                  }}
                 >
-                  {slide.eyebrow}
+                  {slide.projectName} · {slide.location}
                 </motion.p>
 
+                {/* Mixed-weight heading */}
                 <motion.h1
                   variants={childVariants}
-                  className="mt-5 font-display font-bold text-white"
+                  className="font-display text-white"
                   style={{
-                    fontSize: "clamp(36px, 4.5vw, 58px)",
-                    lineHeight: 1.05,
+                    fontSize: "clamp(38px, 4.8vw, 62px)",
+                    lineHeight: 1.08,
+                    fontWeight: 400,
                     whiteSpace: "pre-line",
                   }}
                 >
-                  {slide.heading}
+                  <span style={{ fontWeight: 300 }}>{slide.headingLight} </span>
+                  <br />
+                  <span style={{ fontWeight: 700 }}>{slide.headingBold}</span>
                 </motion.h1>
 
+                {/* Subheading */}
                 <motion.p
                   variants={childVariants}
-                  className="mt-5 font-sans text-cream/80"
+                  className="font-sans text-white/70"
                   style={{
-                    fontSize: "16px",
+                    fontSize: "15px",
                     fontWeight: 300,
-                    lineHeight: 1.85,
-                    maxWidth: "380px",
+                    lineHeight: 1.9,
+                    maxWidth: "390px",
+                    marginTop: "20px",
                   }}
                 >
                   {slide.subheading}
                 </motion.p>
 
-                <motion.div
-                  variants={childVariants}
-                  className="mt-8 flex flex-wrap"
-                  style={{ gap: "12px" }}
-                >
+                {/* Single CTA */}
+                <motion.div variants={childVariants} style={{ marginTop: "36px" }}>
                   <Link
                     to={slide.link}
-                    className="font-sans font-semibold uppercase"
+                    className="font-sans font-semibold uppercase inline-flex items-center gap-3"
                     style={{
                       backgroundColor: "#C9A338",
                       color: "#1C2741",
                       fontSize: "12px",
-                      letterSpacing: "1.5px",
-                      padding: "12px 28px",
+                      letterSpacing: "2px",
+                      padding: "14px 32px",
                       borderRadius: 0,
-                      display: "inline-block",
                     }}
                   >
-                    View Project
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="font-sans font-semibold uppercase text-white"
-                    style={{
-                      border: "1px solid rgba(255,255,255,0.6)",
-                      backgroundColor: "transparent",
-                      fontSize: "12px",
-                      letterSpacing: "1.5px",
-                      padding: "12px 28px",
-                      borderRadius: 0,
-                      display: "inline-block",
-                      transition: "background-color 0.2s ease, border-color 0.2s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#C9A338"
-                      e.currentTarget.style.borderColor = "#C9A338"
-                      e.currentTarget.style.color = "#1C2741"
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "transparent"
-                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.6)"
-                      e.currentTarget.style.color = "white"
-                    }}
-                  >
-                    Contact Us
+                    Explore More
+                    <span style={{ fontSize: "16px", lineHeight: 1 }}>→</span>
                   </Link>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <motion.div
-            className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+          {/* ── Bottom strip: slide counter + arrows ── */}
+          <div
+            className="absolute bottom-0 left-0 right-0 flex items-center justify-between"
+            style={{
+              backgroundColor: "#FAF7F0",
+              padding: "16px 10% 16px 10%",
+              height: "64px",
+            }}
           >
-            <ChevronDown size={26} style={{ color: "#C9A338" }} />
-          </motion.div>
+            {/* Slide counter */}
+            <div className="flex items-baseline gap-1 font-sans" style={{ color: "#1C2741" }}>
+              <span style={{ fontSize: "22px", fontWeight: 600 }}>
+                {activeIndex + 1}
+              </span>
+              <span style={{ fontSize: "15px", color: "#999", fontWeight: 300 }}>
+                / {slides.length}
+              </span>
+            </div>
+
+            {/* Prev / Next arrows */}
+            <div className="flex items-center" style={{ gap: "10px" }}>
+              <button
+                type="button"
+                aria-label="Previous slide"
+                onClick={goPrev}
+                className="flex items-center justify-center"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  border: "1px solid #ccc",
+                  borderRadius: "50%",
+                  background: "transparent",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#C9A338"
+                  e.currentTarget.style.borderColor = "#C9A338"
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent"
+                  e.currentTarget.style.borderColor = "#ccc"
+                }}
+              >
+                <ArrowLeft size={16} color="#1C2741" />
+              </button>
+              <button
+                type="button"
+                aria-label="Next slide"
+                onClick={goNext}
+                className="flex items-center justify-center"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  border: "1px solid #ccc",
+                  borderRadius: "50%",
+                  background: "transparent",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#C9A338"
+                  e.currentTarget.style.borderColor = "#C9A338"
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent"
+                  e.currentTarget.style.borderColor = "#ccc"
+                }}
+              >
+                <ArrowRight size={16} color="#1C2741" />
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div className="relative h-[50vh] overflow-hidden md:h-auto md:flex-1">
+        {/* ── RIGHT PANEL: Image ── */}
+        {/* bg-navy shows at top; image occupies the bottom 78% */}
+        <div className="relative h-[50vh] overflow-hidden bg-navy md:h-auto md:flex-1">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              className="absolute inset-0"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              className="absolute left-0 right-0 bottom-0 overflow-hidden"
+              style={{ height: "78%" }}
+              variants={imageVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
             >
               <img
-                key={`img-${activeIndex}`}
                 src={slide.image}
                 alt={slide.projectName}
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ animation: "8s ease-in-out infinite alternate" }}
+                className="h-full w-full object-cover object-center"
               />
             </motion.div>
           </AnimatePresence>
 
+          {/* "28 Years of Experience" badge — pinned to bottom of image */}
           <div
-            className="absolute bottom-0 left-0 right-0 z-10 flex flex-col justify-end"
+            className="absolute z-10 flex flex-col justify-end"
             style={{
-              height: "140px",
-              background: "linear-gradient(to top, rgba(28,39,65,0.88) 0%, transparent 100%)",
+              bottom: "0",
+              left: "32px",
+              backgroundColor: "#C9A338",
+              padding: "20px 24px",
+              minWidth: "148px",
             }}
           >
-            <div style={{ paddingBottom: "24px", paddingLeft: "32px" }}>
-              <p className="font-display font-semibold text-white" style={{ fontSize: "26px" }}>
-                {slide.projectName}
-              </p>
-              <p
-                className="mt-1 font-sans"
-                style={{ color: "#C9A338", fontSize: "13px", letterSpacing: "1px", fontWeight: 300 }}
-              >
-                {slide.location}
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="absolute z-20 flex items-center"
-            style={{ bottom: "24px", right: "32px", gap: "8px" }}
-          >
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Go to slide ${i + 1}`}
-                onClick={() => goToSlide(i)}
-                style={{
-                  width: i === activeIndex ? "24px" : "8px",
-                  height: "8px",
-                  backgroundColor: i === activeIndex ? "#C9A338" : "transparent",
-                  border: i === activeIndex ? "none" : "1.5px solid white",
-                  borderRadius: i === activeIndex ? "4px" : "50%",
-                  cursor: "pointer",
-                  padding: 0,
-                  transition: "all 0.3s ease",
-                }}
-              />
-            ))}
+            <span
+              className="font-display font-bold"
+              style={{ fontSize: "64px", lineHeight: 1, color: "#1C2741" }}
+            >
+              15
+            </span>
+            <span
+              className="font-sans font-semibold uppercase"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "2px",
+                color: "#1C2741",
+                marginTop: "6px",
+              }}
+            >
+              Years of
+              <br />
+              Experience
+            </span>
           </div>
         </div>
+
       </div>
     </section>
   )

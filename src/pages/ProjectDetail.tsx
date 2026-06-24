@@ -54,7 +54,6 @@ export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
   const project = slug ? getProjectBySlug(slug) : undefined
 
-  const [activeImage, setActiveImage] = useState(0)
   const [openSection, setOpenSection] = useState<AccordionSection | null>(null)
 
   if (!project) {
@@ -119,82 +118,6 @@ export default function ProjectDetail() {
         </ol>
       </nav>
 
-      {/* Image Gallery */}
-      <section>
-        <div className="relative w-full" style={{ height: "65vh" }}>
-          <img
-            src={images[activeImage]}
-            alt={`${project.name} — image ${activeImage + 1}`}
-            className="h-full w-full object-cover"
-            onError={(e) => {
-              e.currentTarget.src = FALLBACK_IMAGE
-            }}
-          />
-
-          {images.length > 1 && (
-            <>
-              <button
-                type="button"
-                onClick={goToPrev}
-                aria-label="Previous image"
-                className="absolute left-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-white transition-colors duration-200"
-                style={{ background: "rgba(28,39,65,0.7)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(28,39,65,0.95)")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(28,39,65,0.7)")}
-              >
-                <ChevronLeft size={22} />
-              </button>
-              <button
-                type="button"
-                onClick={goToNext}
-                aria-label="Next image"
-                className="absolute right-4 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full text-white transition-colors duration-200"
-                style={{ background: "rgba(28,39,65,0.7)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(28,39,65,0.95)")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(28,39,65,0.7)")}
-              >
-                <ChevronRight size={22} />
-              </button>
-            </>
-          )}
-
-          <span
-            className="absolute bottom-4 right-6 font-sans text-white"
-            style={{ fontSize: "14px", fontWeight: 400 }}
-          >
-            {activeImage + 1} / {images.length}
-          </span>
-        </div>
-
-        {images.length > 1 && (
-          <div className="flex gap-2 bg-navy px-2 py-2">
-            {images.map((image, index) => (
-              <button
-                key={image}
-                type="button"
-                onClick={() => setActiveImage(index)}
-                className="flex-1 cursor-pointer overflow-hidden"
-                style={{
-                  height: "80px",
-                  border: index === activeImage ? "2px solid #C9A338" : "2px solid transparent",
-                }}
-                aria-label={`View image ${index + 1}`}
-                aria-current={index === activeImage ? "true" : undefined}
-              >
-                <img
-                  src={image}
-                  alt=""
-                  className="h-full w-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = FALLBACK_IMAGE
-                  }}
-                />
-              </button>
-            ))}
-          </div>
-        )}
-      </section>
-
       {/* Project Info */}
       <section className="bg-white px-6 py-16 md:px-16">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-[62%_36%]">
@@ -210,6 +133,19 @@ export default function ProjectDetail() {
             <p className="mt-6 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "#4A5568" }}>
               {project.description}
             </p>
+            <a
+              href={project.brochure}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block font-sans font-bold text-gold transition-all duration-200 hover:underline"
+              style={{
+                fontSize: "14px",
+                letterSpacing: "1px",
+                textUnderlineOffset: "4px",
+              }}
+            >
+              DOWNLOAD BROCHURE
+            </a>
           </div>
 
           <div>
@@ -269,17 +205,50 @@ export default function ProjectDetail() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
-                        <div className="py-6">
-                          {/* Replace with actual Features/Amenities/Location image */}
-                          <img
-                            src={project[item.imageKey]}
-                            alt={`${project.name} — ${item.label}`}
-                            className="mx-auto w-full object-contain"
-                            style={{ maxHeight: "480px" }}
-                            onError={(e) => {
-                              e.currentTarget.src = FALLBACK_IMAGE
-                            }}
-                          />
+                      <div className="py-6">
+                          {item.key === "location" ? (
+                            <div className="overflow-hidden rounded-lg border border-[#E2D9C8]">
+                              <iframe
+                                src={project.locationMap}
+                                width="100%"
+                                height="450"
+                                className="w-full rounded-lg"
+                                loading="lazy"
+                                allowFullScreen
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                title={`${project.name} Location`}
+                              />
+                            </div>
+                          ) : (
+                            <>
+                              <div className="grid gap-6 md:grid-cols-2">
+                                {project[item.imageKey].map((image, index) => (
+                                  <img
+                                    key={index}
+                                    src={image}
+                                    alt={`${project.name} ${item.label} ${index + 1}`}
+                                    className="w-full object-cover"
+                                    style={{ borderRadius: "8px" }}
+                                    onError={(e) => {
+                                      e.currentTarget.src = FALLBACK_IMAGE
+                                    }}
+                                  />
+                                ))}
+                              </div>
+
+                              <p
+                                className="mt-6 font-sans text-center"
+                                style={{
+                                  fontSize: "16px",
+                                  lineHeight: 1.8,
+                                  color: "#4A5568",
+                                }}
+                              >
+                                {item.key === "features" && project.featuresText}
+                                {item.key === "amenities" && project.amenitiesText}
+                              </p>
+                            </>
+                          )}
                         </div>
                       </motion.div>
                     )}
@@ -295,7 +264,7 @@ export default function ProjectDetail() {
       <section className="bg-navy py-20">
         <div className="mx-auto flex max-w-3xl flex-col items-center px-6 text-center">
           <h2 className="font-display font-bold text-white text-balance" style={{ fontSize: "44px" }}>
-            Interested in this project?
+            Interested?
           </h2>
           
 

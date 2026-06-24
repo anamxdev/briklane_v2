@@ -52,7 +52,7 @@ export default function Navbar() {
             <NavLink
               key={link.to}
               to={link.to}
-              className="group relative font-sans text-navy/90 transition-colors hover:text-navy"
+              className="group relative font-sans font-semibold text-navy/90 transition-colors hover:text-navy"
               style={{ fontSize: "15px", letterSpacing: "0.4px" }}
             >
               {({ isActive }) => (

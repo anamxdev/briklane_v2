@@ -7,9 +7,15 @@ export type Project = {
   area: string
   description: string
   images: string[]
-  features: string
-  amenities: string
+
+  features: string[]
+  amenities: string[]
   locationMap: string
+
+  featuresText: string
+  amenitiesText: string
+
+  brochure: string
   youtubeId: string
 }
 
