@@ -6,11 +6,11 @@ import logo from "../assets/logo.png"
 
 const links = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Ongoing Projects", to: "/ongoing-projects" },
   { label: "Completed Projects", to: "/completed-projects" },
   { label: "Contact", to: "/contact" },
+  { label: "About", to: "/about" },
 ]
 
 export default function Navbar() {
@@ -69,19 +69,6 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:block">
-          <Link
-            to="/contact"
-            className="bg-gold font-sans font-semibold uppercase text-navy transition-colors duration-200 hover:bg-[#B8930A]"
-            style={{
-              display: "inline-block",
-              fontSize: "13px",
-              letterSpacing: "1.5px",
-              padding: "0.625rem 1.5rem",
-              borderRadius: 0,
-            }}
-          >
-            Contact Us
-          </Link>
         </div>
 
         <button

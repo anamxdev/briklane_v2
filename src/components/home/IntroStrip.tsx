@@ -18,7 +18,7 @@ export default function IntroStrip() {
       >
         <p
           className="font-sans uppercase text-gold"
-          style={{ fontSize: "12px", letterSpacing: "4px", fontWeight: 400 }}
+          style={{ fontSize: "16px", letterSpacing: "4px", fontWeight: 900 }}
         >
           About Briklane Infra
         </p>
@@ -39,7 +39,7 @@ export default function IntroStrip() {
   
         <p
           className="mt-6 max-w-xl mx-auto font-sans"
-          style={{ fontSize: "16px", lineHeight: 1.9, color: "#4A5568" }}
+          style={{ fontSize: "20px", fontWeight: 500, lineHeight: 1.9, color: "#4A5568" }}
         >
           Briklane Infra Private Limited is a trusted and professionally managed
           real estate company dedicated to helping clients buy, sell, and invest
@@ -48,7 +48,7 @@ export default function IntroStrip() {
   
         <p
           className="mt-4 max-w-xl mx-auto font-sans"
-          style={{ fontSize: "16px", lineHeight: 1.9, color: "#4A5568" }}
+          style={{ fontSize: "20px", fontWeight: 500, lineHeight: 1.9, color: "#4A5568" }}
         >
           We believe that real estate is more than just property transactions —
           it is about creating value, securing futures, and helping families and
@@ -58,7 +58,7 @@ export default function IntroStrip() {
         <Link
           to="/about"
           className="group mt-8 inline-flex items-center font-sans font-medium text-gold"
-          style={{ fontSize: "15px" }}
+          style={{ fontSize: "18px", fontWeight: 800, }}
         >
           <span className="border-b border-transparent transition-colors duration-200 group-hover:border-gold">
             Discover Our Story

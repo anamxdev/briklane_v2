@@ -31,12 +31,12 @@ const slides = [
       "Thoughtfully designed homes that blend luxury, comfort, and sophistication.",
     projectName: "New Sayeedabad Colony",
     location: "Sayeedabad, Hyderabad",
-    image: "/img/sayeedabad-1.jpg",
+    image: "/img/sayeedabad-4.jpg",
     link: "/project/new-sayeedabad-colony",
   },
 ]
 
-// Left text: slide in from right, exit to left — matches original working animation
+// Left text: slide in from right, exit to left
 const childVariants = {
   enter: { x: 60, opacity: 0 },
   center: {
@@ -79,11 +79,11 @@ function DecorativeRings() {
       aria-hidden="true"
       style={{
         position: "absolute",
-        right: "-80px",
-        top: "50%",
+        right: "0px",
+        top: "45%",
         transform: "translateY(-50%)",
-        width: "420px",
-        height: "420px",
+        width: "520px",
+        height: "520px",
         opacity: 0.08,
         pointerEvents: "none",
       }}
@@ -92,7 +92,7 @@ function DecorativeRings() {
       xmlns="http://www.w3.org/2000/svg"
     >
       {[60, 110, 160, 200].map((r) => (
-        <circle key={r} cx="210" cy="210" r={r} stroke="#C9A338" strokeWidth="1" />
+        <circle key={r} cx="210" cy="210" r={r} stroke="#B48845" strokeWidth="1" />
       ))}
     </svg>
   )
@@ -148,7 +148,7 @@ export default function Hero() {
                 {/* Gold rule */}
                 <motion.div
                   variants={childVariants}
-                  style={{ width: "44px", height: "1px", backgroundColor: "#C9A338" }}
+                  style={{ width: "44px", height: "1px", backgroundColor: "#B48845" }}
                 />
 
                 {/* Eyebrow — building name */}
@@ -156,10 +156,10 @@ export default function Hero() {
                   variants={childVariants}
                   className="font-sans uppercase"
                   style={{
-                    color: "#C9A338",
-                    fontSize: "11px",
+                    color: "#B48845",
+                    fontSize: "14px",
                     letterSpacing: "4px",
-                    fontWeight: 400,
+                    fontWeight: 600,
                     marginTop: "12px",
                   }}
                 >
@@ -187,7 +187,7 @@ export default function Hero() {
                   variants={childVariants}
                   className="font-sans text-white/70"
                   style={{
-                    fontSize: "15px",
+                    fontSize: "18px",
                     fontWeight: 300,
                     lineHeight: 1.9,
                     maxWidth: "390px",
@@ -203,7 +203,7 @@ export default function Hero() {
                     to={slide.link}
                     className="font-sans font-semibold uppercase inline-flex items-center gap-3"
                     style={{
-                      backgroundColor: "#C9A338",
+                      backgroundColor: "#B48845",
                       color: "#1C2741",
                       fontSize: "12px",
                       letterSpacing: "2px",
@@ -255,8 +255,8 @@ export default function Hero() {
                   transition: "all 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#C9A338"
-                  e.currentTarget.style.borderColor = "#C9A338"
+                  e.currentTarget.style.backgroundColor = "#B48845"
+                  e.currentTarget.style.borderColor = "#B48845"
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = "transparent"
@@ -280,8 +280,8 @@ export default function Hero() {
                   transition: "all 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#C9A338"
-                  e.currentTarget.style.borderColor = "#C9A338"
+                  e.currentTarget.style.backgroundColor = "#B48845"
+                  e.currentTarget.style.borderColor = "#B48845"
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = "transparent"
@@ -307,21 +307,21 @@ export default function Hero() {
               animate="center"
               exit="exit"
             >
-              <img
-                src={slide.image}
-                alt={slide.projectName}
-                className="h-full w-full object-cover object-center"
-              />
+            <img
+              src={slide.image}
+              alt={slide.projectName}
+              className="h-full w-auto mx-auto object-contain"
+            />
             </motion.div>
           </AnimatePresence>
 
-          {/* "28 Years of Experience" badge — pinned to bottom of image */}
+          {/* "15 Years of Experience" badge — pinned to bottom of image */}
           <div
             className="absolute z-10 flex flex-col justify-end"
             style={{
               bottom: "0",
               left: "32px",
-              backgroundColor: "#C9A338",
+              backgroundColor: "#B48845",
               padding: "20px 24px",
               minWidth: "148px",
             }}

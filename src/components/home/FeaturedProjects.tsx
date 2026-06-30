@@ -60,7 +60,7 @@ export default function FeaturedProjects() {
               viewport={{ once: true, amount: 0.2 }}
               className="group"
             >
-              <div className="overflow-hidden" style={{ height: "260px" }}>
+              <div className="overflow-hidden" style={{ height: "420px" }}>
                 <img
                   src={project.images[0]}
                   alt={`${project.name} — ${project.location}`}
@@ -70,20 +70,20 @@ export default function FeaturedProjects() {
               <div className="pt-6">
                 <p
                   className="font-sans uppercase text-gold"
-                  style={{ fontSize: "11px", letterSpacing: "3px", fontWeight: 400 }}
+                  style={{ fontSize: "12px", letterSpacing: "3px", fontWeight: 600 }}
                 >
                   {project.type} &middot; {project.location}
                 </p>
                 <h3 className="mt-2 font-display font-bold text-navy" style={{ fontSize: "24px" }}>
                   {project.name}
                 </h3>
-                <p className="mt-2 line-clamp-2 font-sans" style={{ fontSize: "14px", lineHeight: 1.8, color: "#030E27" }}>
+                <p className="mt-2 line-clamp-2 font-sans" style={{ fontSize: "15px", lineHeight: 1.8, color: "#030E27" }}>
                   {project.description}
                 </p>
                 <Link
                   to={`/project/${project.slug}`}
-                  className="mt-4 inline-flex items-center font-sans font-medium text-gold"
-                  style={{ fontSize: "13px" }}
+                  className="mt-4 inline-flex items-center font-sans font-bold text-gold"
+                  style={{ fontSize: "18px", fontWeight: 600 }}
                 >
                   View Project
                   <span className="ml-1.5 transition-transform duration-200 group-hover:translate-x-1">

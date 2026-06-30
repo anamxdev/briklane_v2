@@ -10,22 +10,24 @@ export default function VideoSection() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative w-full overflow-hidden"
-          style={{ borderLeft: "4px solid #C9A338", aspectRatio: "16 / 9" }}
+          
         >
-        
-        <video
-  autoPlay
-  muted
-  loop
-  playsInline
-  style={{
-    width: "100%",
-    height: "100%",
-    objectFit: "contain",
-  }}
->
-  <source src="/videos/briklane-video.mp4" type="video/mp4" />
-</video>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{
+              width: "auto",
+              height: "auto",
+              maxWidth: "100%",
+              display: "block",
+              margin: "0 auto",
+              borderLeft: "4px solid #B48845",
+            }}
+          >
+            <source src="/videos/video-2.mp4" type="video/mp4" />
+          </video>
         </motion.div>
       </div>
     </section>

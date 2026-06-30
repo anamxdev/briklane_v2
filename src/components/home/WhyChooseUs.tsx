@@ -86,7 +86,7 @@ export default function WhyChooseUs() {
                 <h3 className="mt-5 font-display font-semibold text-white" style={{ fontSize: "22px" }}>
                   {r.title}
                 </h3>
-                <p className="mt-3 font-sans" style={{ fontSize: "15px", lineHeight: 1.8, color: "rgba(250,247,240,0.8)" }}>
+                <p className="mt-3 font-sans" style={{ fontSize: "18px", fontWeight: 400, lineHeight: 1.8, color: "rgba(250,247,240,0.8)" }}>
                   {r.desc}
                 </p>
               </motion.div>

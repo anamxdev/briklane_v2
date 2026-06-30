@@ -67,13 +67,13 @@ export default function About() {
               Who We Are
             </h2>
             <div className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
-            <p className="mt-8 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "black" }}>
+            <p className="mt-8 font-sans" style={{ fontSize: "18px", lineHeight: 1.9, color: "black" }}>
               Briklane Infra Private Limited is a trusted and professionally managed real estate company dedicated to
               helping clients buy, sell, and invest in properties with confidence. With extensive industry experience
               and a customer-centric approach, we specialize in residential apartments, villas, independent houses,
               commercial properties, farm houses, farm lands, and open plots.
             </p>
-            <p className="mt-6 font-sans" style={{ fontSize: "17px", lineHeight: 1.9, color: "black" }}>
+            <p className="mt-6 font-sans" style={{ fontSize: "18px", lineHeight: 1.9, color: "black" }}>
               Our experienced team offers professional guidance at every stage of the process, ensuring a seamless,
               efficient, and rewarding experience for every client. We believe that real estate is more than just
               property transactions — it is about creating value, securing futures, and helping families and businesses
@@ -110,7 +110,7 @@ export default function About() {
           >
             <p
               className="font-sans uppercase text-gold"
-              style={{ fontSize: "12px", letterSpacing: "4px", fontWeight: 400 }}
+              style={{ fontSize: "18px", letterSpacing: "4px", fontWeight: 800 }}
             >
               OUR VISION
             </p>
@@ -118,7 +118,7 @@ export default function About() {
               Where We Are Headed
             </h2>
             <div className="mt-5 h-px bg-gold" style={{ width: "60px" }} />
-            <p className="mt-8 font-sans text-cream" style={{ fontSize: "17px", lineHeight: 1.9, opacity: 0.85 }}>
+            <p className="mt-8 font-sans text-cream" style={{ fontSize: "18px", lineHeight: 1.9, opacity: 1 }}>
               To be a leading and trusted real estate company, delivering premium property solutions, innovative
               developments, and long-term value to customers and investors. We are committed to excellence,
               transparency, and sustainable growth while creating vibrant communities and investment opportunities.
@@ -159,10 +159,10 @@ export default function About() {
                 style={{ borderRadius: 0 }}
               >
                 <div className="h-0.5 bg-gold" style={{ width: "40px" }} />
-                <h3 className="mt-5 font-display font-semibold text-navy" style={{ fontSize: "24px" }}>
+                <h3 className="mt-5 font-display font-semibold text-navy" style={{ fontSize: "26px" }}>
                   {v.title}
                 </h3>
-                <p className="mt-3 font-sans" style={{ fontSize: "15px", lineHeight: 1.8, color: "black" }}>
+                <p className="mt-3 font-sans" style={{ fontSize: "18px", lineHeight: 1.8, color: "black" }}>
                   {v.desc}
                 </p>
               </motion.div>
@@ -207,12 +207,12 @@ export default function About() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <h3 className="mt-4 font-display font-semibold text-navy" style={{ fontSize: "22px" }}>
+                <h3 className="mt-4 font-display font-semibold text-navy" style={{ fontSize: "24px" }}>
                   {member.name}
                 </h3>
                 <p
                   className="mt-1 font-sans uppercase text-gold"
-                  style={{ fontSize: "13px", letterSpacing: "2px", fontWeight: 400 }}
+                  style={{ fontSize: "16px", letterSpacing: "2px", fontWeight: 600 }}
                 >
                   {member.role}
                 </p>

@@ -19,14 +19,14 @@ export default function ProjectsCta({ heading, sub }: ProjectsCtaProps) {
         <h2 className="font-display font-semibold text-white text-balance" style={{ fontSize: "40px" }}>
           {heading}
         </h2>
-        <p className="mt-3 font-sans text-cream" style={{ fontSize: "16px", fontWeight: 300 }}>
+        <p className="mt-3 font-sans text-cream" style={{ fontSize: "18px", fontWeight: 300 }}>
           {sub}
         </p>
         <Link
           to="/contact"
           className="mt-8 bg-gold font-sans font-semibold uppercase text-navy transition-opacity duration-200 hover:opacity-90"
           style={{
-            fontSize: "14px",
+            fontSize: "15px",
             letterSpacing: "1.5px",
             padding: "0.875rem 2.5rem",
             borderRadius: 0,

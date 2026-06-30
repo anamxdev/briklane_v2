@@ -49,7 +49,7 @@ export default function ServicesSnapshot() {
           <motion.p
             variants={heading}
             className="font-sans uppercase text-gold"
-            style={{ fontSize: "12px", letterSpacing: "4px", fontWeight: 400 }}
+            style={{ fontSize: "16px", letterSpacing: "4px", fontWeight: 900 }}
           >
             What We Do
           </motion.p>
@@ -90,7 +90,7 @@ export default function ServicesSnapshot() {
               <Link
                 to="/services"
                 className="mt-6 inline-flex items-center font-sans font-medium text-gold"
-                style={{ fontSize: "13px" }}
+                style={{ fontSize: "16px", fontWeight: 600 }}
               >
                 Learn More
                 <span className="ml-1.5 transition-transform duration-200 group-hover:translate-x-1">

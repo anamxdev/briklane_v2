@@ -137,11 +137,12 @@ export default function ProjectDetail() {
               href={project.brochure}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-block font-sans font-bold text-gold transition-all duration-200 hover:underline"
+              className="mt-5 inline-block font-sans font-black text-gold transition-all duration-200 hover:underline"
               style={{
-                fontSize: "14px",
+                fontSize: "18px",
                 letterSpacing: "1px",
                 textUnderlineOffset: "4px",
+                fontWeight: "900",
               }}
             >
               DOWNLOAD BROCHURE

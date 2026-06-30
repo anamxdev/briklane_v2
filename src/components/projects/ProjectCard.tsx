@@ -22,8 +22,8 @@ const cardVariants = {
 export default function ProjectCard({ project, index, variant }: ProjectCardProps) {
   const badgeStyle =
     variant === "ongoing"
-      ? { backgroundColor: "#C9A338", color: "#1C2741" }
-      : { backgroundColor: "#1C2741", color: "#C9A338" }
+      ? { backgroundColor: "#B48845", color: "#1C2741" }
+      : { backgroundColor: "#1C2741", color: "#B48845" }
 
   return (
     <motion.article
@@ -31,11 +31,11 @@ export default function ProjectCard({ project, index, variant }: ProjectCardProp
       variants={cardVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0 }}
       className="group"
     >
       <Link to={`/project/${project.slug}`} className="block">
-        <div className="h-[320px] overflow-hidden">
+        <div className="h-[620px] overflow-hidden">
           <img
             src={project.images[0] || FALLBACK_IMAGE}
             alt={`${project.name} — ${project.location}`}
@@ -56,6 +56,8 @@ export default function ProjectCard({ project, index, variant }: ProjectCardProp
               fontWeight: 500,
               letterSpacing: "2px",
               padding: "0.25rem 0.75rem",
+              backgroundColor: "#B48845",
+              color: "navy"
             }}
           >
             {project.status}
@@ -63,7 +65,7 @@ export default function ProjectCard({ project, index, variant }: ProjectCardProp
           <h2 className="font-display font-bold text-navy" style={{ fontSize: "28px" }}>
             {project.name}
           </h2>
-          <p className="mt-2 font-sans" style={{ fontSize: "15px", fontWeight: 300, color: "#6B7280" }}>
+          <p className="mt-2 font-sans" style={{ fontSize: "15px", fontWeight: 500, color: "#6B7280" }}>
             {project.location}
           </p>
           <p
@@ -73,8 +75,8 @@ export default function ProjectCard({ project, index, variant }: ProjectCardProp
             {project.description}
           </p>
           <span
-            className="mt-5 inline-block font-sans font-semibold text-gold transition-all duration-200 group-hover:underline"
-            style={{ fontSize: "14px" }}
+            className="mt-5 inline-block font-sans font-bold text-gold transition-all duration-200 group-hover:underline"
+            style={{ fontSize: "17px" }}
           >
             View Project Details &rarr;
           </span>

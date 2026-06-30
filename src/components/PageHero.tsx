@@ -8,7 +8,7 @@ type PageHeroProps = {
 
 export default function PageHero({ eyebrow, title }: PageHeroProps) {
   return (
-    <section className="relative flex w-full items-center justify-center overflow-hidden" style={{ height: "65vh" }}>
+    <section className="relative flex w-full items-center justify-center overflow-hidden" style={{ height: "30vh" }}>
       <img
         src={pageHero || "/placeholder.svg"}
         alt=""
@@ -25,7 +25,7 @@ export default function PageHero({ eyebrow, title }: PageHeroProps) {
       >
         <p
           className="font-sans uppercase text-gold"
-          style={{ fontSize: "12px", letterSpacing: "4px", fontWeight: 400 }}
+          style={{ fontSize: "16px", letterSpacing: "4px", fontWeight: 800 }}
         >
           {eyebrow}
         </p>

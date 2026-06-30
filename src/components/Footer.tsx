@@ -91,7 +91,7 @@ export default function Footer() {
         <div className="text-center">
           <div
             className="font-display font-bold"
-            style={{ fontSize: "28px", letterSpacing: "3px" }}
+            style={{ fontSize: "32px", letterSpacing: "3px" }}
           >
             <span className="text-cream">BRIKL</span>
             <span className="text-gold">A</span>
@@ -99,15 +99,15 @@ export default function Footer() {
           </div>
 
           <p
-            className="mt-1 font-sans font-light uppercase text-gold"
-            style={{ fontSize: "11px", letterSpacing: "3px" }}
+            className="mt-1 font-sans font-medium uppercase text-gold"
+            style={{ fontSize: "14px", letterSpacing: "3px" }}
           >
             Infra Private Limited
           </p>
 
           <p
             className="mt-4 font-sans font-light italic text-cream/75"
-            style={{ fontSize: "14px" }}
+            style={{ fontSize: "16px" }}
           >
             Building Trust | Creating Futures
           </p>
@@ -133,7 +133,7 @@ export default function Footer() {
         <div className="text-center">
           <h3
             className="font-display font-semibold text-gold"
-            style={{ fontSize: "20px" }}
+            style={{ fontSize: "24px" }}
           >
             Quick Links
           </h3>
@@ -146,7 +146,7 @@ export default function Footer() {
                 <Link
                   to={link.to}
                   className="group inline-flex items-center justify-center font-sans font-light text-cream/80 transition-colors duration-200 hover:text-gold"
-                  style={{ fontSize: "14px" }}
+                  style={{ fontSize: "18px" }}
                 >
                   <span className="mr-0 w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:mr-1 group-hover:w-3 group-hover:opacity-100">
                     ›
@@ -162,7 +162,7 @@ export default function Footer() {
         <div className="text-center">
           <h3
             className="font-display font-semibold text-gold"
-            style={{ fontSize: "20px" }}
+            style={{ fontSize: "24px" }}
           >
             Get In Touch
           </h3>
@@ -171,7 +171,7 @@ export default function Footer() {
 
           <address
             className="font-sans font-light not-italic text-center text-cream/80"
-            style={{ fontSize: "14px", lineHeight: 1.9 }}
+            style={{ fontSize: "18px", lineHeight: 1.9 }}
           >
             #16-1-30/1/25/1,
             <br />
@@ -182,21 +182,21 @@ export default function Footer() {
 
           <p
             className="mt-4 font-sans font-light text-cream/80"
-            style={{ fontSize: "14px" }}
+            style={{ fontSize: "18px" }}
           >
             +91 7095 658 707 | +91 9666 880 542
           </p>
 
           <p
             className="mt-2 font-sans font-light text-cream/80"
-            style={{ fontSize: "14px" }}
+            style={{ fontSize: "18px" }}
           >
             info@briklane.co.in
           </p>
 
           <p
             className="mt-2 font-sans font-light text-cream/80"
-            style={{ fontSize: "14px" }}
+            style={{ fontSize: "18px" }}
           >
             Mon–Sat, 9AM–6PM
           </p>
@@ -207,7 +207,7 @@ export default function Footer() {
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
         <p
           className="px-8 py-5 text-center font-sans font-light text-cream/50"
-          style={{ fontSize: "12px" }}
+          style={{ fontSize: "13px" }}
         >
           © 2026 Briklane Infra Private Limited. All Rights Reserved.
         </p>
