@@ -145,7 +145,7 @@ export default function ProjectDetail() {
                 fontWeight: "900",
               }}
             >
-              DOWNLOAD BROCHURE
+              BROCHURE
             </a>
           </div>
 

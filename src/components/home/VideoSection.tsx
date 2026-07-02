@@ -9,7 +9,7 @@ export default function VideoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full overflow-hidden"
+          className="relative w-full overflow-hidden h-[740px]"
           
         >
           <video
@@ -26,7 +26,7 @@ export default function VideoSection() {
               borderLeft: "4px solid #B48845",
             }}
           >
-            <source src="/videos/video-2.mp4" type="video/mp4" />
+            <source src="/videos/farmhouse/1.mp4" type="video/mp4" />
           </video>
         </motion.div>
       </div>

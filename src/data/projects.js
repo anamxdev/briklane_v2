@@ -76,10 +76,27 @@ export const projects = [
     area: "",
     description:
       "A successfully completed residential development at Medipally, Boduppal — delivering quality homes to families in one of Hyderabad's fastest growing neighbourhoods.",
-    images: ["/img/boduppal-1.jpg", "/img/boduppal-2.jpg"],
-    features: "/img/placeholder-features.jpg",
-    amenities: "/img/placeholder-amenities.jpg",
-    locationMap: "/img/placeholder-location.jpg",
+    images: ["/img/boduppal-1.jpg"],
+
+    features: [
+      "/img/boduppal-1.jpg",
+      "/img/boduppal-1.jpg",
+    ],
+
+    amenities: [
+      "/img/boduppal-1.jpg",
+      "/img/boduppal-1.jpg",
+    ],
+
+    featuresText:
+      "4 BHK luxury residences with natural ventilation and premium specifications.",
+
+    amenitiesText:
+      "",
+
+    locationMap: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1904.019388387571!2d78.51444976847094!3d17.36186701724959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDIxJzQyLjMiTiA3OMKwMzAnNTEuNyJF!5e0!3m2!1sen!2sin!4v1782321241361!5m2!1sen!2sin",
+    brochure: "/pdf/sayeedabad-brochure.pdf",
+
     youtubeId: "",
   },
   {
@@ -92,9 +109,26 @@ export const projects = [
     description:
       "A completed residential colony project at Kondapur — one of Hyderabad's most sought-after localities with excellent infrastructure and connectivity.",
     images: ["/img/sriram-1.jpg", "/img/sriram-2.jpg"],
-    features: "/img/placeholder-features.jpg",
-    amenities: "/img/placeholder-amenities.jpg",
-    locationMap: "/img/placeholder-location.jpg",
+
+    features: [
+      "/img/sriram-1.jpg",
+      "/img/sriram-1.jpg",
+    ],
+
+    amenities: [
+      "/img/sriram-1.jpg",
+      "/img/sriram-1.jpg",
+    ],
+
+    featuresText:
+      "4 BHK luxury residences with natural ventilation and premium specifications.",
+
+    amenitiesText:
+      "",
+
+    locationMap: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1904.019388387571!2d78.51444976847094!3d17.36186701724959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDIxJzQyLjMiTiA3OMKwMzAnNTEuNyJF!5e0!3m2!1sen!2sin!4v1782321241361!5m2!1sen!2sin",
+    brochure: "/pdf/sayeedabad-brochure.pdf",
+
     youtubeId: "",
   },
   {
@@ -107,9 +141,26 @@ export const projects = [
     description:
       "An elegant completed development at Khajaguda — a premium address near the financial district with scenic views and superior construction.",
     images: ["/img/prashanth-1.jpg", "/img/prashanth-2.jpg"],
-    features: "/img/placeholder-features.jpg",
-    amenities: "/img/placeholder-amenities.jpg",
-    locationMap: "/img/placeholder-location.jpg",
+
+    features: [
+      "/img/prashanth-1.jpg",
+      "/img/prashanth-1.jpg",
+    ],
+
+    amenities: [
+      "/img/prashanth-1.jpg",
+      "/img/prashanth-1.jpg",
+    ],
+
+    featuresText:
+      "4 BHK luxury residences with natural ventilation and premium specifications.",
+
+    amenitiesText:
+      "",
+
+    locationMap: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1904.019388387571!2d78.51444976847094!3d17.36186701724959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDIxJzQyLjMiTiA3OMKwMzAnNTEuNyJF!5e0!3m2!1sen!2sin!4v1782321241361!5m2!1sen!2sin",
+    brochure: "/pdf/sayeedabad-brochure.pdf",
+
     youtubeId: "",
   },
   {
@@ -122,9 +173,26 @@ export const projects = [
     description:
       "A completed residential project in the established locality of Malakpet — quality homes delivered on time with full legal compliance.",
     images: ["/img/saleem-1.jpg", "/img/saleem-2.jpg"],
-    features: "/img/placeholder-features.jpg",
-    amenities: "/img/placeholder-amenities.jpg",
-    locationMap: "/img/placeholder-location.jpg",
+
+    features: [
+      "/img/saleem-1.jpg",
+      "/img/saleem-1.jpg",
+    ],
+
+    amenities: [
+      "/img/saleem-1.jpg",
+      "/img/saleem-1.jpg",
+    ],
+
+    featuresText:
+      "4 BHK luxury residences with natural ventilation and premium specifications.",
+
+    amenitiesText:
+      "",
+
+    locationMap: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1904.019388387571!2d78.51444976847094!3d17.36186701724959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTfCsDIxJzQyLjMiTiA3OMKwMzAnNTEuNyJF!5e0!3m2!1sen!2sin!4v1782321241361!5m2!1sen!2sin",
+    brochure: "/pdf/sayeedabad-brochure.pdf",
+
     youtubeId: "",
   },
   {
