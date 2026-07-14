@@ -91,7 +91,7 @@ export default function CompletedProjects() {
                       fontWeight: 600,
                     }}
                   >
-                    Farmhouse · {farmhouse.location}
+                    {farmhouse.location}
                   </p>
 
                   <h3

@@ -26,7 +26,7 @@ export default function VideoSection() {
               borderLeft: "4px solid #B48845",
             }}
           >
-            <source src="/videos/farmhouse/1.mp4" type="video/mp4" />
+            <source src="/videos/farmhouse/elegance/1.mp4" type="video/mp4" />
           </video>
         </motion.div>
       </div>
