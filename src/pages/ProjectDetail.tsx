@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Phone, Mail } from "lucide-react"
-import { getProjectBySlug } from "../data/projects"
+import { getProjectBySlug as getHardcodedProjectBySlug } from "../data/projects"
+import { getProjectBySlug as getSanityProjectBySlug } from "../sanity/projectService"
 import type { Project } from "../data/projects"
 
 const FALLBACK_IMAGE = "/img/image.png"
@@ -52,9 +53,50 @@ function DetailRow({ label, value }: { label: string; value: string }) {
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
-  const project = slug ? getProjectBySlug(slug) : undefined
 
-  const [openSection, setOpenSection] = useState<AccordionSection | null>(null)
+const [project, setProject] = useState<Project | null>(null)
+
+const [loading, setLoading] = useState(true)
+
+const [openSection, setOpenSection] =
+  useState<AccordionSection | null>(null)
+
+useEffect(() => {
+  async function loadProject() {
+    if (!slug) {
+      setLoading(false)
+      return
+    }
+
+    const hardcoded =
+      getHardcodedProjectBySlug(slug)
+
+    if (hardcoded) {
+      setProject(hardcoded)
+      setLoading(false)
+      return
+    }
+
+    const sanity =
+      await getSanityProjectBySlug(slug)
+
+    if (sanity) {
+      setProject(sanity)
+    }
+
+    setLoading(false)
+  }
+
+  loadProject()
+}, [slug])
+
+if (loading) {
+  return (
+    <section className="flex min-h-[50vh] items-center justify-center">
+      Loading...
+    </section>
+  )
+}
 
   if (!project) {
     return (

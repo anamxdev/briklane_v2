@@ -18,7 +18,7 @@ const slides = [
     headingLight: "Inspiring you to",
     headingBold: "rise high",
     subheading:
-      "Maphar Decent Tower, the property stands tall at Mehdipatnam spanning to a rise of 8 floors.",
+      "Designed to elevate every moment of life.",
     projectName: "Classic One",
     location: "Asmangarh",
     image: "/img/classic-one.jpg",
@@ -125,18 +125,18 @@ export default function Hero() {
   const slide = slides[activeIndex]
 
   return (
-    <section className="relative w-full overflow-hidden md:h-screen">
+    <section className="relative w-full overflow-hidden md:h-[85vh]">
       <div className="flex h-full flex-col md:flex-row">
 
         {/* ── LEFT PANEL: Text ── */}
         <div
           className="relative flex flex-col justify-center overflow-hidden bg-navy md:w-[45%]"
-          style={{ minHeight: "60vh" }}
+          style={{ minHeight: "48vh" }}
         >
           <DecorativeRings />
 
           {/* Main text content */}
-          <div style={{ padding: "0 8% 80px 10%" }}>
+          <div style={{ padding: "20% 8% 80px 10%" }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}

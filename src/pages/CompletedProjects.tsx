@@ -1,53 +1,78 @@
-import { useState } from "react"
-import { projects } from "../data/projects"
-import { farmhouses } from "../data/farmhouses"
+import { useEffect, useState } from "react"
+import {
+  getCompletedProjects,
+  getCompletedFarmhouses,
+} from "../sanity/projectService"
 import { Link } from "react-router-dom"
 import ProjectsHero from "../components/projects/ProjectsHero"
 import ProjectCard from "../components/projects/ProjectCard"
 import ProjectsCta from "../components/projects/ProjectsCta"
-
-const completedProjects = projects.filter(
-  (project) => project.status === "Completed"
-)
 
 export default function CompletedProjects() {
   const [activeTab, setActiveTab] = useState<
     "residential" | "farmhouses"
   >("residential")
 
+  const [completedProjects, setCompletedProjects] = useState<any[]>([])
+  const [allFarmhouses, setAllFarmhouses] = useState<any[]>([])
+
+  useEffect(() => {
+    async function loadProjects() {
+      try {
+        const data = await getCompletedProjects()
+        setCompletedProjects(data)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
+    loadProjects()
+  }, [])
+
+  useEffect(() => {
+    async function loadFarmhouses() {
+      try {
+        const data = await getCompletedFarmhouses()
+        setAllFarmhouses(data)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
+    loadFarmhouses()
+  }, [])
+
   return (
     <>
       <ProjectsHero eyebrow="OUR ACHIEVEMENTS" title="Completed Projects" />
 
       <section className="bg-white px-6 py-20 md:px-16">
-        {/* Tabs */}
         <div className="mb-8 flex justify-center">
-  <div className="flex border border-navy">
-    <button
-      onClick={() => setActiveTab("residential")}
-      className={`px-6 py-3 font-sans text-sm font-bold uppercase tracking-[0.12em] transition-colors duration-300 ${
-        activeTab === "residential"
-          ? "bg-navy text-white"
-          : "bg-white text-navy hover:bg-navy hover:text-white"
-      }`}
-    >
-      Residential
-    </button>
+          <div className="flex border border-navy">
+            <button
+              onClick={() => setActiveTab("residential")}
+              className={`px-6 py-3 font-sans text-sm font-bold uppercase tracking-[0.12em] transition-colors duration-300 ${
+                activeTab === "residential"
+                  ? "bg-navy text-white"
+                  : "bg-white text-navy hover:bg-navy hover:text-white"
+              }`}
+            >
+              Residential
+            </button>
 
-    <button
-      onClick={() => setActiveTab("farmhouses")}
-      className={`border-l border-navy px-6 py-3 font-sans text-sm font-bold uppercase tracking-[0.12em] transition-colors duration-300 ${
-        activeTab === "farmhouses"
-          ? "bg-navy text-white"
-          : "bg-white text-navy hover:bg-navy hover:text-white"
-      }`}
-    >
-      Farmhouses
-    </button>
-  </div>
-</div>
+            <button
+              onClick={() => setActiveTab("farmhouses")}
+              className={`border-l border-navy px-6 py-3 font-sans text-sm font-bold uppercase tracking-[0.12em] transition-colors duration-300 ${
+                activeTab === "farmhouses"
+                  ? "bg-navy text-white"
+                  : "bg-white text-navy hover:bg-navy hover:text-white"
+              }`}
+            >
+              Farmhouses
+            </button>
+          </div>
+        </div>
 
-        {/* Content */}
         {activeTab === "residential" ? (
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {completedProjects.map((project, index) => (
@@ -61,15 +86,12 @@ export default function CompletedProjects() {
           </div>
         ) : (
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-
-            {farmhouses.map((farmhouse, index) => (
-
+            {allFarmhouses.map((farmhouse, index) => (
               <Link
                 key={farmhouse.slug}
                 to={`/farmhouse/${farmhouse.slug}`}
                 className="group"
               >
-
                 <div
                   className="overflow-hidden"
                   style={{ height: "340px" }}
@@ -82,7 +104,6 @@ export default function CompletedProjects() {
                 </div>
 
                 <div className="pt-6">
-
                   <p
                     className="font-sans uppercase text-gold"
                     style={{
@@ -111,23 +132,15 @@ export default function CompletedProjects() {
                     {farmhouse.description}
                   </p>
 
-                  <div
-                    className="mt-5 inline-flex items-center font-semibold text-gold"
-                  >
+                  <div className="mt-5 inline-flex items-center font-semibold text-gold">
                     View Project
-
                     <span className="ml-2 transition-transform group-hover:translate-x-1">
                       →
                     </span>
-
                   </div>
-
                 </div>
-
               </Link>
-
             ))}
-
           </div>
         )}
       </section>
