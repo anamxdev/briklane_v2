@@ -49,6 +49,24 @@ function InstagramIcon({ size = 20 }: IconProps) {
   )
 }
 
+function TwitterIcon({ size = 20 }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M18 2h3l-7.5 8.5L22 22h-6l-4.7-6.2L5.8 22H2l8-9.1L2 2h6l4.2 5.5L18 2z" />
+    </svg>
+  )
+}
+
 function LinkedinIcon({ size = 20 }: IconProps) {
   return (
     <svg
@@ -70,9 +88,14 @@ function LinkedinIcon({ size = 20 }: IconProps) {
 }
 
 const socials = [
-  { label: "Facebook", Icon: FacebookIcon, href: "#" },
-  { label: "Instagram", Icon: InstagramIcon, href: "#" },
-  { label: "LinkedIn", Icon: LinkedinIcon, href: "#" },
+  { label: "Facebook", Icon: FacebookIcon, href: "https://www.facebook.com/people/Briklane-Infra/pfbid02YG9ZXDZEuN8NbY8SdGkk2QuaPsPHud3sEr8RfrEMc3X5PnAhPpwZgwpWSmxtrzcyl/" },
+  { label: "Instagram", Icon: InstagramIcon, href: "https://www.instagram.com/briklaneinfra/" },
+  {
+    label: "Twitter",
+    Icon: TwitterIcon,
+    href: "https://x.com/briklaneinfra",
+  },
+  { label: "LinkedIn", Icon: LinkedinIcon, href: "https://x.com/briklaneinfra" },
 ]
 
 function HeadingRule() {
@@ -120,6 +143,8 @@ export default function Footer() {
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="text-cream transition-colors duration-200 hover:text-gold"
               >
