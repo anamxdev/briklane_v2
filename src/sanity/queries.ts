@@ -80,3 +80,67 @@ export const completedFarmhousesQuery = groq`
   locationMap
 }
 `
+
+// ===========================================
+// DYNAMIC CATEGORIES
+// ===========================================
+
+export const categoriesQuery = `
+*[_type=="category"] | order(name asc){
+    name,
+    slug
+}
+`
+
+export const listingsByCategoryQuery = `
+*[
+    _type=="listing" &&
+    category->slug.current==$slug
+]{
+    name,
+    slug,
+    location,
+    description,
+
+    coverImage{
+        asset->{
+            url
+        }
+    },
+
+    category->{
+        name,
+        slug
+    }
+}`
+
+export const listingBySlugQuery = `
+*[
+    _type=="listing" &&
+    slug.current==$slug
+][0]{
+    name,
+    slug,
+    location,
+    description,
+    details,
+    locationMap,
+
+    coverImage{
+        asset->{url}
+    },
+
+    galleryImages[]{
+        asset->{url}
+    },
+
+    galleryVideos[]{
+        asset->{url}
+    },
+
+    category->{
+        name,
+        slug
+    }
+}
+`

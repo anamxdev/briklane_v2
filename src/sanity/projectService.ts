@@ -4,6 +4,11 @@ import {
   ongoingProjectsQuery,
   projectBySlugQuery,
 } from "./queries"
+import {
+  categoriesQuery,
+  listingsByCategoryQuery,
+  listingBySlugQuery,
+} from "./queries";
 import { completedFarmhousesQuery } from "./queries"
 
 function mapProject(project: any) {
@@ -141,4 +146,70 @@ export async function getFarmhouseBySlug(slug: string) {
       farmhouse.galleryVideos?.map((video: any) => video.url) || [],
     locationMap: farmhouse.locationMap || "",
   }
+}
+
+export async function getCategories() {
+  return await client.fetch(categoriesQuery);
+}
+
+export async function getListingsByCategory(slug: string) {
+  const listings = await client.fetch(
+    listingsByCategoryQuery,
+    { slug }
+  );
+
+  return listings.map((listing: any) => ({
+    slug: listing.slug.current,
+
+    name: listing.name,
+
+    location: listing.location || "",
+
+    description: listing.description || "",
+
+    coverImage:
+      listing.coverImage?.asset?.url || "",
+
+    category: listing.category?.slug?.current || "",
+  }));
+}
+
+export async function getListingBySlug(slug: string) {
+  const listing = await client.fetch(
+    listingBySlugQuery,
+    { slug }
+  );
+
+  if (!listing) return null;
+
+  return {
+    slug: listing.slug.current,
+
+    name: listing.name,
+
+    location: listing.location || "",
+
+    description: listing.description || "",
+
+    details: listing.details || [],
+
+    coverImage:
+      listing.coverImage?.asset?.url || "",
+
+    galleryImages:
+      listing.galleryImages?.map(
+        (img: any) => img.asset.url
+      ) || [],
+
+    galleryVideos:
+      listing.galleryVideos?.map(
+        (video: any) => video.asset.url
+      ) || [],
+
+    locationMap:
+      listing.locationMap || "",
+
+    category:
+      listing.category?.slug?.current || "",
+  };
 }

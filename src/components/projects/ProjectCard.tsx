@@ -34,10 +34,17 @@ export default function ProjectCard({ project, index, variant }: ProjectCardProp
       viewport={{ once: true, amount: 0 }}
       className="group"
     >
-      <Link to={`/project/${project.slug}`} className="block">
+      <Link
+  to={
+    (project as any).category
+      ? `/listing/${project.slug}`
+      : `/project/${project.slug}`
+  }
+  className="block"
+>
         <div className="h-[620px] overflow-hidden">
           <img
-            src={project.images[0] || FALLBACK_IMAGE}
+            src={project.images?.[0] || (project as any).coverImage || FALLBACK_IMAGE}
             alt={`${project.name} — ${project.location}`}
             className="h-full w-full object-cover transition-transform duration-[450ms] ease-out group-hover:scale-[1.04]"
             onError={(e) => {

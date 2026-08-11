@@ -11,6 +11,7 @@ import OngoingProjects from "./pages/OngoingProjects"
 import CompletedProjects from "./pages/CompletedProjects"
 import ProjectDetail from "./pages/ProjectDetail"
 import FarmhouseDetails from "./pages/FarmhouseDetails"
+import ListingDetails from "./pages/ListingDetails"
 import Contact from "./pages/Contact"
 import NotFound from "./components/NotFound"
 
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/completed-projects" element={<CompletedProjects />} />
           <Route path="/project/:slug" element={<ProjectDetail />} />
           <Route path="/farmhouse/:slug" element={<FarmhouseDetails />} />
+          <Route path="/:category/:slug" element={<ListingDetails />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
